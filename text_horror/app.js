@@ -23,9 +23,10 @@ function typeWriter() {
 }
 
 function mouseClick() {
-  if (document.getElementById("bubble").innerHTML.length == dlgLines[dlgPointer].toString().length) {
+  if (document.getElementById("bubble").innerHTML.length == dlgLines[dlgPointer].length) {
     if (dlgPointer < dlgLines.length - 1) {
       dlgPointer++;
+      while (!(typeof dlgLines[dlgPointer] === 'string')) dlgPointer++;//again if it's not string
       typeindex = 0;
       document.getElementById("bubble").innerHTML = "";
       typeWriter();
