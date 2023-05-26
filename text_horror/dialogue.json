@@ -1,7 +1,5 @@
-{
-    "<start>": [
-        "Hello welcome to TextHorror!",
-        "This is the second line",
-        "Aand a third line"
-    ]
-}
+[
+    "Hello welcome to TextHorror!",
+    "This is the second line",
+    "Aand a third line"
+]

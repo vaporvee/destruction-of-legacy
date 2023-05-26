@@ -9,7 +9,7 @@ function load() {
     .then(Response => Response.json())
     .then(data => {
       dlgFile = data;
-      dlgLines = dlgFile["<start>"];
+      dlgLines = dlgFile;
       typeWriter();
     })
 }
