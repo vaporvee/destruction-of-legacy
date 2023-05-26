@@ -1,0 +1,51 @@
+@font-face {
+    font-family: pixel-font;
+    src: url(assets/pixel-font.ttf);
+}
+
+body {
+    color-scheme: dark;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#bubble {
+    font-family: pixel-font;
+    text-align: left;
+    font-size: 30px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white;
+    padding: 30px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.triangle {
+    fill: #fff;
+    position: absolute;
+    right: 17%;
+    bottom: 27%;
+    animation: float 1.5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
