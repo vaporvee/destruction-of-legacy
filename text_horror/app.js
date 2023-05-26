@@ -1,7 +1,7 @@
 var speed = 50;
 var typeindex = 0;
 var dlgFile = {};
-var dlgLines = [""];
+let dlgLines;
 var dlgPointer = 0;
 
 function load() {
@@ -15,15 +15,15 @@ function load() {
 }
 
 function typeWriter() {
-  if (document.getElementById("bubble").innerHTML.length - 1 < dlgLines[dlgPointer].length) {
-    document.getElementById("bubble").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
+  if (document.getElementById("bubble").innerHTML.length - 1 < dlgLines[dlgPointer].toString().length) {
+    document.getElementById("bubble").innerHTML += dlgLines[dlgPointer].toString().charAt(typeindex);
     typeindex++;
     setTimeout(typeWriter, speed);//loops because of running "typeWriter" after waiting
   }
 }
 
 function mouseClick() {
-  if (document.getElementById("bubble").innerHTML.length == dlgLines[dlgPointer].length) {
+  if (document.getElementById("bubble").innerHTML.length == dlgLines[dlgPointer].toString().length) {
     if (dlgPointer < dlgLines.length - 1) {
       dlgPointer++;
       typeindex = 0;
