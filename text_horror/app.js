@@ -23,14 +23,10 @@ function typeWriter() {
   }
 }
 
-document.addEventListener('mousedown', mouseDown, false)
-document.addEventListener('mouseup', mouseUp, false)
+document.addEventListener('click', nextDlg, false)
 
-function mouseDown() {
+function nextDlg() {
   document.getElementById("triangle").hidden = true;
-}
-
-function mouseUp() {
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length) { //check if text is typed out
     document.getElementById("triangle").hidden = true;
     if (dlgPointer < dlgLines.length - 1) { //check if dlgPointer is not at the array end
