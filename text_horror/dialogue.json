@@ -13,11 +13,6 @@
                 {
                     "Yes, i have a nice day": [
                         "Cool bye!"
-                    ],
-                    "No": [
-                        0.2,
-                        "Oh...",
-                        1
                     ]
                 }
             ],

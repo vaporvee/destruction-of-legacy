@@ -3,6 +3,10 @@ var typeindex = 0;
 var dlgPointer = 0;
 var dlgFile;
 let dlgLines;
+var answers;
+var keys;
+
+//BUG: You cant put anything other than a string at the beginning of a dialogue array
 
 function load() {
   fetch("text_horror/dialogue.json")
@@ -16,6 +20,7 @@ function load() {
 function changeDlg(dlgKey) {
   dlgPointer = 0;
   typeindex = 0;
+  speed = 50;
   dlgLines = dlgFile[dlgKey];
   document.getElementById("dlg-text").innerHTML = "";
   typeWriter();
@@ -41,8 +46,8 @@ function nextDlg() {
         else if (typeof dlgLines[dlgPointer] === 'object') {
           document.getElementById("answer-box").hidden = false;
           document.getElementById("bubble").onclick = null;
-          const answers = document.getElementsByClassName("answer");
-          const keys = Object.keys(dlgLines[dlgPointer]);
+          answers = document.getElementsByClassName("answer");
+          keys = Object.keys(dlgLines[dlgPointer]);
           for (let j = 0; j < keys.length; j++) { //why is the length one smaller? Does javascript make any sense someday?
             answers.item(j).innerHTML = keys[j];
           }
@@ -67,9 +72,11 @@ function nextDlg() {
 }
 
 function answered(answerId) {
-  console.log(typeof dlgLines[dlgPointer] === 'object');
   dlgFile = dlgLines[dlgPointer];
   document.getElementById("bubble").addEventListener("click", nextDlg);
   document.getElementById("answer-box").hidden = true;
   changeDlg(document.getElementById(answerId).innerHTML);
+  for (let j = 0; j < keys.length; j++) { //why is the length one smaller? Does javascript make any sense someday?
+    answers.item(j).innerHTML = "";
+  }
 }
