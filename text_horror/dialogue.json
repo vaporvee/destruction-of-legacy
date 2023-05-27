@@ -9,10 +9,28 @@
         "Can you answer?",
         {
             "Yes": [
-                "CoooooooolllSADVwqavedWSDV"
+                "Thats pretty cool! Do you have a nice day?",
+                {
+                    "Yes, i have a nice day": [
+                        "Cool bye!"
+                    ],
+                    "No": [
+                        0.2,
+                        "Oh...",
+                        1
+                    ]
+                }
             ],
             "Also Yes": [
-                "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMGGHWhudujwd"
+                "That was a weird answer... Is anything wrong with you?",
+                {
+                    "Yes my name is Peter": [
+                        "OOOOHHHH! That explains everything."
+                    ],
+                    "No I'm Yannik": [
+                        "Oh okay... Still weird but have a nice day Yannik!"
+                    ]
+                }
             ]
         }
     ]

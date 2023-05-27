@@ -13,6 +13,14 @@ function load() {
     })
 }
 
+function changeDlg(dlgKey) {
+  dlgPointer = 0;
+  typeindex = 0;
+  dlgLines = dlgFile[dlgKey];
+  document.getElementById("dlg-text").innerHTML = "";
+  typeWriter();
+}
+
 function typeWriter() {
   if (document.getElementById("dlg-text").innerHTML.length < dlgLines[dlgPointer].length) {
     document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
@@ -27,6 +35,7 @@ function nextDlg() {
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length) { //check if text is typed out
     if (dlgPointer < dlgLines.length - 1) { //check if dlgPointer is not at the array end
       do {
+        dlgPointer++;
         if (typeof dlgLines[dlgPointer] === 'number')
           speed = 50 / dlgLines[dlgPointer];
         else if (typeof dlgLines[dlgPointer] === 'object') {
@@ -43,7 +52,6 @@ function nextDlg() {
           if (dlgLines[dlgPointer].split(":")[0] === "_title")
             document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
         }
-        dlgPointer++;
       }
       while (!(typeof dlgLines[dlgPointer] === 'string') || dlgLines[dlgPointer].startsWith("_")) //again if it's not string
       if (typeof dlgLines[dlgPointer] === 'string') {
@@ -58,8 +66,10 @@ function nextDlg() {
   }
 }
 
-function changeDlg(dlgKey = "") {
-  var dlgPointer = 0;
-  dlgLines = dlgFile[dlgKey];
-  typeWriter();
+function answered(answerId) {
+  console.log(typeof dlgLines[dlgPointer] === 'object');
+  dlgFile = dlgLines[dlgPointer];
+  document.getElementById("bubble").addEventListener("click", nextDlg);
+  document.getElementById("answer-box").hidden = true;
+  changeDlg(document.getElementById(answerId).innerHTML);
 }
