@@ -1,7 +1,7 @@
 var speed = 50;
 var typeindex = 0;
 var dlgFile = {};
-let dlgLines;
+let dlgLines = [];
 var dlgPointer = 0;
 
 function load() {
@@ -22,22 +22,20 @@ function typeWriter() {
   }
 }
 
-document.addEventListener('click', nextDlg, false)
-
 function nextDlg() {
   document.getElementById("triangle").hidden = true;
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length) { //check if text is typed out
     document.getElementById("triangle").hidden = true;
-    if (dlgPointer < dlgLines.length - 1) { //check if dlgPointer is not at the array end
+    if (dlgPointer < dlgLines.length - 2) { //check if dlgPointer is not at the array end
       do {
-        if (String(dlgLines[dlgPointer]).startsWith("_")) {
-          switch (dlgLines[dlgPointer].split(":")[0]) {
-            case "_title":
-              document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
-              break;
-          }
-        }
         dlgPointer++;
+        if (typeof dlgLines[dlgPointer] === 'number')
+          speed = 50 / dlgLines[dlgPointer];
+        else if (typeof dlgLines[dlgPointer] === 'object') { }
+        else if (typeof dlgLines[dlgPointer] === 'string' && String(dlgLines[dlgPointer]).startsWith("_")) {
+          if (dlgLines[dlgPointer].split(":")[0] === "_title")
+            document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
+        }
       }
       while (typeof dlgLines[dlgPointer] !== 'string' || String(dlgLines[dlgPointer]).startsWith("_")) //again if it's not string
       typeindex = 0;
@@ -45,6 +43,7 @@ function nextDlg() {
       typeWriter();
     } else {
       document.getElementById("bubble").hidden = true;
+      document.getElementById("answer-box").hidden = true;
     }
   }
 }

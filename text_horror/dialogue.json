@@ -2,9 +2,15 @@
     "start": [
         "Hello welcome to TextHorror!",
         "_title:NPC Name",
-        1,
         "This is the second line",
-        2,
-        "Aand a third line"
+        "Aand a third line",
+        0.3,
+        "This text is slow",
+        1,
+        "And again normal text",
+        {
+            "Yes": "CoooooooolllSADVwqavedWSDV",
+            "Also Yes": "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMGGHWhudujwd"
+        }
     ]
 }

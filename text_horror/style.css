@@ -8,6 +8,7 @@ body {
     background-color: black;
     color: white;
     font-family: pixel-font;
+    user-select: none;
 }
 
 .thx-for-playing {

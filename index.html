@@ -11,11 +11,14 @@
 </head>
 
 <body onpageshow="load()">
-    <div id="bubble">
+    <div id="bubble" onclick="nextDlg()">
         <p id="title"></p>
         <p id="dlg-text"></p>
     </div>
-    <img hidden="true" id="triangle" src="text_horror/assets/triangle.png">
+    <div id="answer-box">
+        <p>Test</p>
+    </div>
+    <img draggable="false" hidden="true" id="triangle" src="text_horror/assets/triangle.png">
     <p class="thx-for-playing">Thanks for playing</p>
 </body>
 
