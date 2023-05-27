@@ -9,8 +9,7 @@ function load() {
     .then(Response => Response.json())
     .then(data => {
       dlgFile = data;
-      dlgLines = dlgFile;
-      typeWriter();
+      changeDlg("start");
     })
 }
 
@@ -30,9 +29,17 @@ function nextDlg() {
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length) { //check if text is typed out
     document.getElementById("triangle").hidden = true;
     if (dlgPointer < dlgLines.length - 1) { //check if dlgPointer is not at the array end
-      do
+      do {
+        if (String(dlgLines[dlgPointer]).startsWith("_")) {
+          switch (dlgLines[dlgPointer].split(":")[0]) {
+            case "_title":
+              document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
+              break;
+          }
+        }
         dlgPointer++;
-      while (!(typeof dlgLines[dlgPointer] === 'string')) //again if it's not string
+      }
+      while (typeof dlgLines[dlgPointer] !== 'string' || String(dlgLines[dlgPointer]).startsWith("_")) //again if it's not string
       typeindex = 0;
       document.getElementById("dlg-text").innerHTML = "";
       typeWriter();
@@ -40,4 +47,10 @@ function nextDlg() {
       document.getElementById("bubble").hidden = true;
     }
   }
+}
+
+function changeDlg(dlgKey = "") {
+  var dlgPointer = 0;
+  dlgLines = dlgFile[dlgKey];
+  typeWriter();
 }

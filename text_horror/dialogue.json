@@ -1,7 +1,10 @@
-[
-    "Hello welcome to TextHorror!",
-    "This is the second line",
-    1,
-    2,
-    "Aand a third line"
-]
+{
+    "start": [
+        "Hello welcome to TextHorror!",
+        "_title:NPC Name",
+        1,
+        "This is the second line",
+        2,
+        "Aand a third line"
+    ]
+}

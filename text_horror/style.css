@@ -7,7 +7,6 @@ body {
     color-scheme: dark;
     background-color: black;
     color: white;
-    text-align: center;
     font-family: pixel-font;
 }
 
@@ -18,6 +17,13 @@ body {
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
+}
+
+#title {
+    font-size: 30px;
+    text-decoration: underline;
+    margin: 0;
+    position: absolute;
 }
 
 #dlg-text {
