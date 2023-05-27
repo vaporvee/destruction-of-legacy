@@ -14,8 +14,8 @@ function load() {
 }
 
 function typeWriter() {
-  if (document.getElementById("dlg-text").innerHTML.length < dlgLines[dlgPointer].toString().length) {
-    document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].toString().charAt(typeindex);
+  if (document.getElementById("dlg-text").innerHTML.length < dlgLines[dlgPointer].length) {
+    document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
     typeindex++;
     document.getElementById("triangle").hidden = document.getElementById("dlg-text").innerHTML.length != dlgLines[dlgPointer].length
     setTimeout(typeWriter, speed); //loops because of running "typeWriter" after waiting
@@ -25,22 +25,32 @@ function typeWriter() {
 function nextDlg() {
   document.getElementById("triangle").hidden = true;
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length) { //check if text is typed out
-    document.getElementById("triangle").hidden = true;
-    if (dlgPointer < dlgLines.length - 2) { //check if dlgPointer is not at the array end
+    if (dlgPointer < dlgLines.length - 1) { //check if dlgPointer is not at the array end
       do {
-        dlgPointer++;
         if (typeof dlgLines[dlgPointer] === 'number')
           speed = 50 / dlgLines[dlgPointer];
-        else if (typeof dlgLines[dlgPointer] === 'object') { }
-        else if (typeof dlgLines[dlgPointer] === 'string' && String(dlgLines[dlgPointer]).startsWith("_")) {
+        else if (typeof dlgLines[dlgPointer] === 'object') {
+          document.getElementById("answer-box").hidden = false;
+          document.getElementById("bubble").onclick = null;
+          const answers = document.getElementsByClassName("answer");
+          const keys = Object.keys(dlgLines[dlgPointer]);
+          for (let j = 0; j < keys.length; j++) { //why is the length one smaller? Does javascript make any sense someday?
+            answers.item(j).innerHTML = keys[j];
+          }
+          break;
+        }
+        else if (typeof dlgLines[dlgPointer] === 'string' && dlgLines[dlgPointer].startsWith("_")) {
           if (dlgLines[dlgPointer].split(":")[0] === "_title")
             document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
         }
+        dlgPointer++;
       }
-      while (typeof dlgLines[dlgPointer] !== 'string' || String(dlgLines[dlgPointer]).startsWith("_")) //again if it's not string
-      typeindex = 0;
-      document.getElementById("dlg-text").innerHTML = "";
-      typeWriter();
+      while (!(typeof dlgLines[dlgPointer] === 'string') || dlgLines[dlgPointer].startsWith("_")) //again if it's not string
+      if (typeof dlgLines[dlgPointer] === 'string') {
+        typeindex = 0;
+        document.getElementById("dlg-text").innerHTML = "";
+        typeWriter();
+      }
     } else {
       document.getElementById("bubble").hidden = true;
       document.getElementById("answer-box").hidden = true;
