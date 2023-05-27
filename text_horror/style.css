@@ -20,14 +20,19 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#bubble {
+#dlg-text {
     text-align: left;
-    font-size: 30px;
+    font-size: 40px;
+    white-space: break-spaces;
+}
+
+#bubble {
     border-width: 5px;
     border-style: solid;
     border-color: white;
     background-color: black;
-    padding: 30px;
+    padding: 20px;
+    padding-left: 50px;
     margin: 0;
     position: absolute;
     top: 50%;
