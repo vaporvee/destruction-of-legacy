@@ -57,6 +57,24 @@ body {
     animation: float 1.5s ease-in-out infinite;
 }
 
+#answer-box {
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+    background-color: black;
+    width: 15%;
+    padding-inline: 20px;
+    position: absolute;
+    right: 12%;
+    bottom: 68%;
+}
+
+#answer {
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+
 @keyframes float {
     0% {
         transform: translatey(0px);

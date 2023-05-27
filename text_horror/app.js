@@ -1,8 +1,8 @@
 var speed = 50;
 var typeindex = 0;
-var dlgFile = {};
-let dlgLines = [];
 var dlgPointer = 0;
+var dlgFile;
+let dlgLines;
 
 function load() {
   fetch("text_horror/dialogue.json")
