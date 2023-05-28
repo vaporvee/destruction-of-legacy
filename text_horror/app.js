@@ -7,7 +7,6 @@ var answers;
 var keys;
 
 //BUG: You cant put anything other than a string at the beginning of a dialogue array
-//TODO: Save last Object in a temp variable before setting the new dialogue from the answerbox to make a way back funtion possible
 
 function load() {
   fetch("text_horror/dialogue.json")
