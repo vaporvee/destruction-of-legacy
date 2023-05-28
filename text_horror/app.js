@@ -20,7 +20,6 @@ function load() {
 function changeDlg(dlgKey) {
   dlgPointer = 0;
   typeindex = 0;
-  speed = 50;
   dlgLines = dlgFile[dlgKey];
   document.getElementById("dlg-text").innerHTML = "";
   typeWriter();
