@@ -6,6 +6,7 @@ let dlgLines;
 var skipDlg = false;
 var answers;
 var keys;
+var allowNextDlg = true;
 
 function load() {
   fetch("text_horror/dialogue.json")
@@ -33,6 +34,7 @@ function updateDlg() {
   console.log(dlgLines[dlgPointer]);
   typeindex = 0;
   document.getElementById("dlg-text").innerHTML = "";
+  document.getElementById("triangle").hidden = true;
   typeWriter();
 }
 
@@ -41,11 +43,12 @@ function typeWriter() {
     document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
     typeindex++;
     setTimeout(typeWriter, speed);
-  }
+  } else if (allowNextDlg)
+    document.getElementById("triangle").hidden = false;
 }
 
 function nextDlg(dlgPointerIncrease = true) {
-  if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length || skipDlg) {
+  if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length && allowNextDlg || skipDlg) {
     skipDlg = false;
     if (dlgPointerIncrease)
       dlgPointer++
@@ -66,8 +69,9 @@ function nextDlg(dlgPointerIncrease = true) {
           updateDlg();
       }
       else if (typeof dlgLines[dlgPointer] === 'object') {
+        allowNextDlg = false;
+        document.getElementById("triangle").hidden = true;
         document.getElementById("answer-box").hidden = false;
-        document.getElementById("bubble").onclick = null;
         answers = document.getElementsByClassName("answer");
         keys = Object.keys(dlgLines[dlgPointer]);
         for (let j = 0; j < keys.length; j++) {
@@ -78,15 +82,16 @@ function nextDlg(dlgPointerIncrease = true) {
     else {
       document.getElementById("bubble").hidden = true;
       document.getElementById("answer-box").hidden = true;
+      document.getElementById("triangle").hidden = true;
     }
   }
 }
 
 function answered(answerId) {
   dlgFile = dlgLines[dlgPointer];
-  document.getElementById("bubble").addEventListener("click", nextDlg);
   document.getElementById("answer-box").hidden = true;
   changeDlg(document.getElementById(answerId).innerHTML);
+  allowNextDlg = true;
   skipDlg = true;
   nextDlg(false);
   for (let j = 0; j < keys.length; j++) {
