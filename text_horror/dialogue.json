@@ -1,7 +1,6 @@
 {
     "start": [
         "Hello welcome to TextHorror!",
-        "_title:Spitzkopf",
         "This is the second line",
         0.3,
         "This text is slow",
@@ -17,6 +16,7 @@
                 }
             ],
             "Also Yes": [
+                "_title:Spitzkopf",
                 "That was a weird answer... Is anything wrong with you?",
                 {
                     "Yes my name is Peter": [
