@@ -10,9 +10,7 @@
             "Yes": [
                 "Thats pretty cool! Do you have a nice day?",
                 {
-                    "Yes, i have a nice day": [
-                        "Cool bye!"
-                    ]
+                    "Yes, i have a nice day": "Cool bye!"
                 }
             ],
             "Also Yes": [
@@ -20,11 +18,10 @@
                 "That was a weird answer... Is anything wrong with you?",
                 {
                     "Yes my name is Peter": [
-                        "OOOOHHHH! That explains everything."
+                        "OOOOHHHH! That explains everything.",
+                        "Warum hast du mich noch nicht gelöscht?"
                     ],
-                    "No I'm Yannik": [
-                        "Oh okay... Still weird but have a nice day Yannik!"
-                    ]
+                    "No I'm Yannik": "Oh okay... Still weird but have a nice day Yannik!"
                 }
             ]
         }
