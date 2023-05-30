@@ -9,13 +9,13 @@ var keys;
 var allowNextDlg = true;
 
 function load() {
-  fetch("text_horror/dialogue.json")
+  fetch("text_horror/dialogue.json") //Load json file here
     .then(Response => Response.json())
     .then(data => {
       dlgFile = data;
-      changeDlg("start");
-      skipDlg = true;
-      nextDlg(false);
+      changeDlg("start"); //Set "start" key from dialogue.json
+      skipDlg = true; //Allow skipping to next dialogue
+      nextDlg(false); //Skip to first
     });
 }
 
