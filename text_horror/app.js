@@ -7,6 +7,7 @@ var skipDlg = false;
 var answers;
 var keys;
 var allowNextDlg = true;
+var voice;
 
 function load() {
   fetch("text_horror/dialogue.json") //Load json file here
@@ -31,7 +32,6 @@ function changeDlg(dlgKey) {
 }
 
 function updateDlg() {
-  console.log(dlgLines[dlgPointer]);
   typeindex = 0;
   document.getElementById("dlg-text").innerHTML = "";
   document.getElementById("triangle").hidden = true;
@@ -41,6 +41,10 @@ function updateDlg() {
 function typeWriter() {
   if (typeindex < dlgLines[dlgPointer].length) {
     document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
+    if (voice != null && typeindex % 3 == 1) {
+      voice.load();
+      voice.play();
+    }
     typeindex++;
     setTimeout(typeWriter, speed);
   } else if (allowNextDlg)
@@ -63,6 +67,13 @@ function nextDlg(dlgPointerIncrease = true) {
           skipDlg = true
           if (dlgLines[dlgPointer].split(":")[0] === "_title") {
             document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
+            nextDlg();
+          }
+          if (dlgLines[dlgPointer].split(":")[0] === "_voice") {
+            if (dlgLines[dlgPointer].split(':')[1].length != 0)
+              voice = new Audio("text_horror/assets/voices/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
+            else
+              voice = null;
             nextDlg();
           }
         } else
