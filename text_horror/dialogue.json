@@ -1,28 +1,114 @@
 {
     "start": [
-        "Hello welcome to TextHorror!",
-        "This is the second line",
+        
+        "Willkommen zu diesem Spiel",
         0.3,
-        "This text is slow",
+        "! Kein Name (coming soon) !",
         1,
-        "Can you answer?",
+        "Du wachst in einem dunkeln Raum auf und hast starke kopfschmerzen",
+        "_title:Spieler",
+        ".....",
+        "..wA",
+        "Wo...",
+        "wo bin ich ?",
+        "Mein Kopf tut weh",
+        "....",
+        "Hallo ?",
+        "Ist jemand hier ?",
+        "Ahh ... mein Kopf",
+        "Dort scheint Licht zu sein",
+        "eine Tür, scheint offen zu sein",
+        "hört sich an ob jemand da wäre, vielleicht höre ich etwas",
+        "_title:Fremder",
+        ".......",
+        "knacks.....",
+        "...knacks..knacks",
+        "(eine weitere tür schließt sich)",
+        ".....",
+        "(stille)",
+        "_title:Spieler",
+        "ich glaube der ist ertsmal weg",
+        "hat er mich hier hingebracht ?",
+        "hmm ich glaube ich",
         {
-            "Yes": [
-                "Thats pretty cool! Do you have a nice day?",
+            "Anderen weg suchen": [
+                "_title:Spieler",
+                "suche lieber einen anderen Weg, vielleicht liegt hier etwas brauchbares rum",
+                "mal sehen, ein mit Brett zugenagletes fenster",
+                "ich versuche mal es rauszureißen",
+                "ok das hat geklappt",
+                "sollte niemand mitbekommen haben, es gesah sehr lautlos",
+                "hmm durchs Fenster klettern oder doch durch die Tür",
+        
+
                 {
-                    "Yes, i have a nice day": "Cool bye!"
-                }
-            ],
-            "Also Yes": [
-                "_title:Spitzkopf",
-                "_voice:spitzkopf",
-                "That was a weird answer... Is anything wrong with you?",
-                {
-                    "Yes my name is Peter": [
-                        "OOOOHHHH! That explains everything.",
-                        "Warum hast du mich noch nicht gelöscht?"
+                    "Tür öffnen": [
+                    "_title:Spieler",
+                    "ich denke es wäre besser wenn ich doch durch die Tür gehe",
+                    "(der Spieler öffnet langsam die Tür)",
+                    "_title:Fremder",
+                    "Na hör mal mein Freund"
                     ],
-                    "No I'm Yannik": "Oh okay... Still weird but have a nice day Yannik!"
+                
+                   "Durch das Fenster klettern": [
+                    "_title:Spieler",
+                    "ich glaube es ist besser wenn ich durchs Fenster klettere",
+                    "durch die Tür zu gehen ist zu gefährlich",
+                    "Verammt ich komme nicht weiter durchs Fenste",
+                    0.3,
+                    "(TÜR KNALLT AUF)",
+                    "_title:Fremder",
+                    "NA HÖR MAl"
+
+                    
+
+                   ]
+                
+                
+                }
+
+                
+            ],
+            "Tür öffnen": [
+                "_title:Spieler",
+                "ich öffne die Tür er scheint ja weg gegenagen zu sein, vielleicht schaffe ich es mich rauszuschleichen",
+                "ok keiner ist hinter der Tür, ich höre auch niemanden in der nähe",
+                "ist hier eine Waffeum mich im notfall zu verteidigen, vielleicht etwas was man als Waffe benutzen könnte",
+                "ich durchsuche jetzt erstaml hier den Raum",
+                "(Spieler öffnet den Schrank)",
+                "okay hier scheint nichts nützliches rumzuliegen, vielleicht in dieser Truhe ?",
+                "Die Truhe scheint etwas sehr Wertvolles zu besitzen",
+                "Hmm sollte ich sie öffnen scheint eine art verrigelung zu haben",
+                "Obwohl sie scheint offen zu sein aber trozdem ist etwas komisches an der Truhe",
+                "hmm sollte ich die Truhe öffnen ? Vielleicht ist dort eine brauchbare Waffe enthalten oder etwas anderes sehr nützliches",
+                
+
+                {
+                    "Truhe öffnen": [
+                        "_title:Spieler",
+                        "(Der Spieler öffnet vorsichtig die truhe",
+                        "EINE GANZE TRUHE VOLLER GOLDBAREN ?!?!?",
+                        0.3,
+                        "(Tür knallt auf)",
+                        "_title:Fremder",
+                        "ab in knast mein Freund"
+                    ],
+                    "Truhe geschlossen lassen": [
+                    "_title:Spieler",
+                    "ich glaube es ist besser sie nicht zu öffnen dieses Ding an der Truhe wirkt sowieso komisch",
+                    "Nun denn ich gehe weiter",
+                    "(Spieler öffnet eine Tasche)",
+                    "hier sind Geldscheine drinnen, ich sollte sie mitnehmen",
+                    "Verdammt die Scheine sind gefälscht",
+                    "Wenn ich abhauen will brauche ich Geld, ich muss mein Geld wieder finden, der Fremde hat mir alles abgenommen",
+                    "Das Geld müsste hier im Haus sein irgendwo",
+                    "hmm....",
+                    "ich guck mal weiter....",
+                    "Eine Tür die nach draußen führt",
+                    "und endlich auch mal ein Fenster zum rausgucken",
+                    "es scheint, das ich mich irgendwo tief im Wald befinde"
+
+                    ]
                 }
             ]
         }
