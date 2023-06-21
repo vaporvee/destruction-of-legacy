@@ -16,6 +16,11 @@ var voice;
 //playsound
 //save file in local storage
 
+window.addEventListener('contextmenu', (event) => {
+  event.preventDefault()
+  speed = 0
+})
+
 function load() {
   fetch("text_horror/dialogue.json") //Load json file here
     .then(Response => Response.json())
@@ -58,6 +63,7 @@ function typeWriter() {
 }
 
 function nextDlg(dlgPointerIncrease = true) {
+  speed = 50
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length && allowNextDlg || skipDlg) {
     skipDlg = false;
     if (dlgPointerIncrease)
