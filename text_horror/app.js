@@ -2,6 +2,7 @@ var speed = 50;
 var typeindex = 0;
 var dlgPointer = 0;
 var dlgFile;
+var dlgKeyMain = "main";
 let dlgLines;
 var skipDlg = false;
 var answers;
@@ -9,12 +10,18 @@ var keys;
 var allowNextDlg = true;
 var voice;
 
+//TODO
+//add skipDlg with right mouse click
+//simple fights
+//playsound
+//save file in local storage
+
 function load() {
   fetch("text_horror/dialogue.json") //Load json file here
     .then(Response => Response.json())
     .then(data => {
       dlgFile = data;
-      changeDlg("start"); //Set "start" key from dialogue.json
+      changeDlg(dlgKeyMain); //Set "start" key from dialogue.json
       skipDlg = true; //Allow skipping to next dialogue
       nextDlg(false); //Skip to first
     });
@@ -28,7 +35,6 @@ function changeDlg(dlgKey) {
   }
   else if (Array.isArray(dlgFile[dlgKey]))
     dlgLines = dlgFile[dlgKey]
-
 }
 
 function updateDlg() {
@@ -69,12 +75,27 @@ function nextDlg(dlgPointerIncrease = true) {
             document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
             nextDlg();
           }
-          if (dlgLines[dlgPointer].split(":")[0] === "_voice") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_voice") {
             if (dlgLines[dlgPointer].split(':')[1].length != 0)
               voice = new Audio("text_horror/assets/voices/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
             else
               voice = null;
             nextDlg();
+          }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_playsound") {
+            var sound
+            if (dlgLines[dlgPointer].split(':')[1].length != 0) {
+              sound = new Audio("text_horror/assets/sounds/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
+              sound.load();
+              sound.play();
+            }
+            else
+              sound = null;
+            nextDlg();
+          }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_jump") {
+            dlgKeyMain = dlgLines[dlgPointer].split(':')[1]
+            load()
           }
         } else
           updateDlg();
