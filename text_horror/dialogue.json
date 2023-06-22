@@ -7,102 +7,323 @@
         "! Kein Name (coming soon) !",
         1,
         "Du wachst in einem dunkeln Raum auf und hast starke kopfschmerzen",
-        "_title:Spieler",
-        ".....",
-        "..wA",
-        "Wo...",
-        "wo bin ich ?",
-        "Mein Kopf tut weh",
-        "....",
-        "Hallo ?",
-        "Ist jemand hier ?",
-        "Ahh ... mein Kopf",
-        "Dort scheint Licht zu sein",
-        "eine Tür, scheint offen zu sein",
-        "hört sich an ob jemand da wäre, vielleicht höre ich etwas",
-        "_title:Fremder",
-        ".......",
-        "knacks.....",
-        "...knacks..knacks",
-        "(eine weitere tür schließt sich)",
-        ".....",
-        "(stille)",
-        "_title:Spieler",
-        "ich glaube der ist ertsmal weg",
-        "hat er mich hier hingebracht ?",
-        "hmm ich glaube ich",
+        "_title:",
+        "Du bemerkst das du alleine in diesem Raum bist und versuchst Licht zu finden",
+        "Du bemerkst Licht das durch eine Spalte scheint und gehst dort hin",
+        "Du bist angekommen und bemerkst das vor dir eine stabile Holztür ist",
+        "Nach leichtem versuch sie zu öffnen bemerkst du das die Tür verschlossen ist",
+        "Du gehst zurück und suchst nach einem anderen Weg",
+        "Du bemerkst einen weiteren Spalt wo Licht durch scheint und gehst dort hin",
+        "angekommen erkennst du das über dir ein kleines Fenster ist, was durch ein Brett zugenagelt ist",
+        "ausserdem bemerkst du sehr viel alten Schrott in einer ecke des Raumes, wo man etwas brauchbares finden könnte",
+        "Das Brett am Fenster versuchen rauszureißen oder den Schrotthaufen plündern ?",
+
         {
-            "Anderen weg suchen": [
-                "_title:Spieler",
-                "suche lieber einen anderen Weg, vielleicht liegt hier etwas brauchbares rum",
-                "mal sehen, ein mit Brett zugenagletes fenster",
-                "ich versuche mal es rauszureißen",
-                "ok das hat geklappt",
-                "sollte niemand mitbekommen haben, es gesah sehr lautlos",
-                "hmm durchs Fenster klettern oder doch durch die Tür",
+            "Brett rausreißen": [
+                "_title:",
+                "Du hast das Brett mit leichtigkeit rausgerissen und siehs das das Fenster offen ist",
+                "Dadurch bemerkst du das du mitten in einem Wald bist, du bemerkst nichts weiteres weil es dunkel ist",
+                "Du kannst das Fenster aber nicht ewig offen lassen weil du bemerkt werden könntest",
+                "Du könntest auch das Fenster wieder zu schließen und den Schrotthaufen plündern",
+                "Oder du versuchst durch das Fenster zu klettern und zu fliehen",
+                "Durch das Fenster nach draußen fliehen oder das Fenster wieder schließen und den Schrotthaufen plündern ?",
+                
+                
                 {
-                    "Tür öffnen": [
-                        "_title:Spieler",
-                        "ich denke es wäre besser wenn ich doch durch die Tür gehe",
-                        "(der Spieler öffnet langsam die Tür)",
-                        "_title:Fremder",
-                        "Na hör mal mein Freund"
+                    "Fliehen": [
+                        "_title:",
+                        "Du entkommst aus dem dunkelen Raum",
+                        "_jump:zweitestory(gameover)"
+                        
                     ],
-                    "Durch das Fenster klettern": [
-                        "_title:Spieler",
-                        "ich glaube es ist besser wenn ich durchs Fenster klettere",
-                        "durch die Tür zu gehen ist zu gefährlich",
-                        "Verammt ich komme nicht weiter durchs Fenste",
-                        0.3,
-                        "(TÜR KNALLT AUF)",
-                        "_title:Fremder",
-                        "NA HÖR MAl"
+                    "Schrotthaufen plündern": [
+                        "_title:",
+                        "Du schließt erfolgreich das Fenster und gehst weiter zum Schrotthaufen",
+                        "_jump:Schrotthaufen durchsuchen"
+                        
                     ]
                 }
             ],
-            "Tür öffnen": [
-                "_title:Spieler",
-                "ich öffne die Tür er scheint ja weg gegenagen zu sein, vielleicht schaffe ich es mich rauszuschleichen",
-                "ok keiner ist hinter der Tür, ich höre auch niemanden in der nähe",
-                "ist hier eine Waffeum mich im notfall zu verteidigen, vielleicht etwas was man als Waffe benutzen könnte",
-                "ich durchsuche jetzt erstaml hier den Raum",
-                "(Spieler öffnet den Schrank)",
-                "okay hier scheint nichts nützliches rumzuliegen, vielleicht in dieser Truhe ?",
-                "Die Truhe scheint etwas sehr Wertvolles zu besitzen",
-                "Hmm sollte ich sie öffnen scheint eine art verrigelung zu haben",
-                "Obwohl sie scheint offen zu sein aber trozdem ist etwas komisches an der Truhe",
-                "hmm sollte ich die Truhe öffnen ? Vielleicht ist dort eine brauchbare Waffe enthalten oder etwas anderes sehr nützliches",
+            "Schrotthaufen durchsuchen": [
+                "_title:",
+                "Du plünderst den Schrotthaufen und versuchst etwas nützliches zu finden",
+                "Du findest im Schrotthaufen einen Draht den man als Dietrich verwenden könnte",
+                "Mit diesem Dietrich könntest du die Tür versuchen aufzuschließen oder du nimmst den Dietrich mit und fliehst durch das Fenster",
+                "Den Dietrich mitnehmen und durch das Fenster fliehen oder versuchen die Tür mit dem Dietrich aufzuschließen",
+                
+                
                 {
-                    "Truhe öffnen": [
-                        "_title:Spieler",
-                        "(Der Spieler öffnet vorsichtig die truhe",
-                        "EINE GANZE TRUHE VOLLER GOLDBAREN ?!?!?",
-                        0.3,
-                        "(Tür knallt auf)",
-                        "_title:Fremder",
-                        "ab in knast mein Freund"
+                    
+                    "Durch das Fenster fliehen": [
+                        "_title:",
+                        "_jump:zweitestory(gameover2)"
                     ],
-                    "Truhe geschlossen lassen": [
-                        "_title:Spieler",
-                        "ich glaube es ist besser sie nicht zu öffnen dieses Ding an der Truhe wirkt sowieso komisch",
-                        "Nun denn ich gehe weiter",
-                        "(Spieler öffnet eine Tasche)",
-                        "hier sind Geldscheine drinnen, ich sollte sie mitnehmen",
-                        "Verdammt die Scheine sind gefälscht",
-                        "Wenn ich abhauen will brauche ich Geld, ich muss mein Geld wieder finden, der Fremde hat mir alles abgenommen",
-                        "Das Geld müsste hier im Haus sein irgendwo",
-                        "hmm....",
-                        "ich guck mal weiter....",
-                        "Eine Tür die nach draußen führt",
-                        "und endlich auch mal ein Fenster zum rausgucken",
-                        "es scheint, das ich mich irgendwo tief im Wald befinde"
+                    "Tür versuchen aufzuschließen": [
+                        
+                        "_title:",
+                        "Du gehst wieder zur Tür und versuchst die Tür mit dem Dietrich aufzuschließen",
+                        "Tutorial: Schlösser knacken (Um ein Schloss mit einem Dietrich zu knacken, musst du eine zufällige kombination mit den Pfeiltasten (Rechts) und (Links) versuchen",
+                        "_lock:code",
+                        "Erfolg",
+                        "Du hast das Schloss mit dem Dietrich aufgeschlossen und öffnest vorsichtig die Tür",
+                        "Hinter der Tür ist ein voll dekorierter Raum",
+                        "In diesem Raum befinden sich zwei wetere Türen, eine Tür die nach draußen führt und eine Tür die weiter ins Haus führt",
+                        "Außerdem siehst du einen Schrank und eine merkwürdige Truhe",
+                        "Die merkwürdige Truhe hat ein Schloss was man mit einem Dietrich öffnen könnte",
+                        "Der Schrank hat kein Schloss und ist somit leicht zu durchsuchen",
+                        "Den Schrank öffnen oder die Truhe versuchen mit dem Dietrich aufzuschließen",
+                        {
+                            "Die Truhe plündern": [
+                                "_jump:erstestory",
+                                
+                            {
+                                    "Den Schrank durchsuchen":[
+                                    "Du schließt und gehst von der merkwürdigen Truhe weg und versuchst den Schrank zu öffen",
+                                    "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(10-15 Schaden)",
+                                    "_weapon:name:15",
+                                    "Du nimmst das Jadgmesser mit und trittst von dem Schrank zurück und stehst jetzt mitten im Raum",
+                                    "Du hast die wahl entweder die Tür nach Draußen aufzuschließen oder die Tür die weiter ins Haus führt aufzuschließen oder zurück zu gehen und durch das Fenster zu fliehen",
+
+                                    {
+                                        "Tür nach draußen öffnen": [
+                                        ""
+                                        ],
+        
+                                        "Tür zum weiteren Raum öffen": [
+                                            ""
+        
+                                        ],
+        
+                                        "Zurück zum letzten Raum": [
+                                            "Du gehst zurück zum dunkelen Raum",
+                                            "jump:zweitestory"
+                                        ]
+                                    }
+
+                                ]
+
+                            }
+                            ],
+
+                            "Den Schrank durchsuchen": [
+                                "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(10-15 Schaden)",
+                                "_weapon:name:15",
+                                "Du nimmst das Jadgmesser mit und trittst von dem Schrank zurück und stehst jetzt mitten im Raum",
+                                "Du hast die wahl entweder die Tür nach Draußen aufzuschließen oder die Tür die weiter ins Haus führt aufzuschließen oder zurück zu gehen und durch das Fenster zu fliehen oder die Truhe zu öffnen",
+
+                            {
+                                "Tür nach draußen öffnen": [
+                                    ""
+                                ],
+
+                                "Tür zum weiteren Raum öffen": [
+                                    ""
+
+                                ],
+
+                                "Die Truhe öffnen": [
+                                    "_jump:drittestory"
+                                ],
+
+                                "Zurück zum letzten Raum": [
+                                    "Du gehst zurück zum dunkelen Raum und verlässt das Haus",
+                                    "jump:zweitestory"
+                                ]
+                            }
+
+
+                            ]
+                        }
+                        
+                      
                     ]
                 }
             ]
         }
     ],
-    "secondstory": [
-        "wow erster test",
-        "krass ist halt zweiter test"
+
+        "drittestory": [
+            "Du gehst zu der Truhe und setzt deinen Dietrich an",
+            "_lock:code",
+            "Erfolg",
+            "Du hast die Truhe erfolgreich aufgeschlossen und geöffnet",
+            "In der Truhe findest du sehr viel Falschgeld und einen kleinen Goldbaren der echt aussieht",
+            "Du hast den Goldbaren an dich genommen und plötzlich geht ein Alarm los",
+            "Du erschrekst dich und wirfst den Goldbaren zurück in die Truhe und versuchst durch die Tür nach draußen zu fliehen",
+            "Du stehst vor der Tür und versuchst das Schloss zu knacken",
+            "_lock:code",
+            "Erfolg",
+            "Du hast die Tür nach Draußen aufgeschlossen und fliehst in den Wald",
+            "Du fliehst mit einem Dietrich und einem Jagdmesser(10-15 Schaden)"
+        ],
+
+        "zweitestory(gameover)": [
+            "Du fliehst aus dem dunklen Raum in den Wald",
+            "Es fängt an zu regnen und du entdecks ein verlassenes Holzhaus im Wald",
+            "In das verlassene Haus Unterkunft suchen und schutz finden oder weiter durch den Wald gehen",
+            {
+                "Ins Haus": [
+                    "Du gehst in das verlassene Haus und die Tür knallt zu",
+                    "Du versuchst die Tür zu öffnen aber sie öffnete sich nicht und du hörst ein lautes Kratzen am Boden",
+                    "Du erkennst ein Ghul artiges wesen auf dich zukommenund dich mit deinen Namen ansprechen",
+                    "Bevor du etwas sagen konntest greift das Wesen dich an",
+                    "_Kampf:Fight"
+
+                ],
+
+                "Weiter gehen": [
+                    "Du gehst weiter durch den Wald und hörst im Hintergrund ein lachen",
+                    "Du gehst weiter und hörst das lachen lauter und kranker",
+                    "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
+                    "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
+                    "Die Wesen sprechen zu dir und sagen schließe du uns an"
+
+                ]
+            }
+            
+
+
+    ],
+        "zweitestory(gameover2)": [
+            "Du fliehst aus dem dunklen Raum mit einem Dietrich und verschwindest im Wald",
+            "Im Wald findest du eine alte verlassene Holzhütte",
+            "Es fing an zu regnen und du überlegst in der verlassenen Holzhütte schutz zu suchen",
+            "In der Hütte schutz suchen oder weiter ziehen",
+
+            {
+                "Ins Haus": [
+                    "Du gehst in das verlassene Haus und die Tür knallt zu",
+                    "Du versuchst die Tür zu öffnen aber sie öffnete sich nicht und du hörst ein lautes Kratzen am Boden",
+                    "Du erkennst ein Ghul artiges wesen auf dich zukommen und dich mit deinen Namen ansprechen und dabei lachen",
+                     "Du hast einen Dietrich und kannst die Tür aufschließen und fliehen oder du wartest was das Wesen möchte",
+                    
+                     {
+                        "Bleiben": [
+                            "Du bleibst stehen und zeigst keine Angst",
+                            "Das Wesen lacht und greift dich sofort an",
+                            "_Kampf:Fight"
+
+                        ],
+
+                        "Fliehen": [
+                            "Du setzt deinen Dietrich an der Tür ein",
+                            "_lock:code",
+                            "Erfolg",
+                            "Du öffnest die Tür und rennst weiter in den Wald doch der Ghul bleibt im Haus und folgt dir nicht",
+                            "Du gehst weiter durch den Wald und hörst im Hintergrund ein lachen",
+                            "Du gehst weiter und hörst das lachen lauter und kranker",
+                            "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
+                            "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
+                            "Die Wesen sprechen zu dir und sagen schließe du uns an",
+                            "_Kampf:Fight",
+                            {
+                "Ins Haus": [
+                    "Du gehst in das verlassene Haus und die Tür knallt zu",
+                    "Du versuchst die Tür zu öffnen aber sie öffnete sich nicht und du hörst ein lautes Kratzen am Boden",
+                    "Du erkennst ein Ghul artiges wesen auf dich zukommenund dich mit deinen Namen ansprechen",
+                    "Bevor du etwas sagen konntest greift das Wesen dich an",
+                    "_Kampf:Fight"
+
+                ],
+
+                "Weiter gehen": [
+                    "Du gehst weiter durch den Wald und hörst im Hintergrund ein lachen",
+                    "Du gehst weiter und hörst das lachen lauter und kranker",
+                    "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
+                    "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
+                    "Die Wesen sprechen zu dir und sagen schließe du uns an"
+
+                ]
+            }
+
+                        ]
+                     }
+
+                ],
+
+                "Weiter gehen": [
+                    "Du gehst weiter durch den Wald und hörst im Hintergrund nach einer zeit ein lachen",
+                    "Du gehst weiter und hörst das lachen lauter und kranker",
+                    "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
+                    "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
+                    "Die Wesen sprechen zu dir und sagen schließe du uns an"
+
+                ]
+            }
+
+            
+
+        ],
+    
+        "zweitestory": [
+        "du fliehst aus dem Haus durch das Fenster mit einem Dietrich und einem Jadgmesser(15-20 Schaden).",
+        "Du findest eine alte verlassene Holzhütte mitten im Wald wo du unterkommen könntest",
+        "Es fing an zu Regnen und du gehst in das verlassene Haus und suchst Unterkunft",
+        "Du hörst aus dem nichts ein lautes kratzen und ein Guhl artige Bestie kommt zum vorschein",
+        "Du ergreifst dein Jagdmesser und machst dich bereit für den Kampf gegen den Ghul",
+        "du kannst aber auch fliehen, da du einen Dietrich hast kannst du die Tür aufschließen und weg laufen",
+        "Die Tür aufschließen und weglaufen oder bleiben",
+
+        {
+            "Fliehen": [
+                "Du gehst weiter durch den Wald und hörst im Hintergrund ein lachen",
+                "Du gehst weiter und hörst das lachen lauter und kranker",
+                "Du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
+                "Du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
+                "Die Wesen sprechen zu dir und sagen schließe du uns an"
+
+            ],
+
+            "Bleiben": [
+                "Du bleibst furchtlos stehen und das Wesen lacht dich an",
+                "Plötzlich greift das Wesen dich sofort an und du musst kämpfen",
+                "Du hastt ein Jagdmesser(10-15 Schaden) das du im Kampf gegen das Wesen benutzen kannst",
+                "_fight:kampf",
+                "Du hast das Wesen besiegt und kannst das Haus untersuchen, vielleicht gibt es hier nützliche Gegenstände",
+                "Du endeckst etliche Bücher über Geschichte und bemerkst das dieses Haus ein adliges Haus war, aber auch ein sehr altes",
+                "Du findest einen Zettel wo dein name drauf steht und das dich jemand in diese Gegend bringen sollte",
+                "Du liest den Zettel weiter und bemerkst eine seltsame Unterschrift und Siegel einer Person",
+                "Du bemerkst das neben den Siegel ein Datum steht und zwar wurde der Zettel vor 230 Jahren geschriebem",
+                "Du bist sehr verwirrt und legst den Zettel weg",
+                "Neben den Zettel siehst du eine kleine Kiste die Geschlossen ist und mit die kiste ist voller Wachs und du siehst einen Gang in einen Keller mit Schildern in einer merkwürdigen Sprache",
+                "Die Kiste versuchen zu öffnen oder die komische Kiste in ruhe lassen und richtung Keller gehen",
+                {
+                    "Kiste öffnen": [
+                        ""
+                    ],
+
+                    "Kiste in ruhe lassen": [
+                        "Du entscheidest dich die Kiste in ruhe zu lassen und dich richtung Keller zu begeben um die Schilder versuchen zu lesen",
+                        "Du bemerkst das du die schieler nicht verstehst und das sie in einer sehr alten Sprache geschrieben wurde",
+                        "Die Kellertür scheint offen zu sein",
+                        "Plötzlich hörst du hinter dir im neben Zimmer eine leise Stimme hören die dir bekannt vor kommt",
+                        "Die stimme kommt dir sehr bekannt vor und sie bittet dich zu ihr in Zimmer zu kommen",
+                        "Du erinnerst dich un erkennst die Stimme es istt die von !(Noch kein Name)!",
+                        "Auf die Stimme im Zimmer hören oder durch die Gittertür in den keller gehen",
+
+                        {
+                            "Zur Stimme": [
+                               "Die entscheidest dich der Stimme zu folgen und gehst in das Zimmer woher die Stimme kamm",
+                               "Du stehst im Zimmer und suchst woher die Stimme kommen könnte aber du erkennst nichts und siehst niemanden",
+                               "Auf einmal knallt die Tür zu und dunkele, durchsichtige gestalten umkreisen dich und schauen dich mit leeren blicken an",
+                               "Und sagen zu dir schließe du uns an",
+                               ""
+                            ],
+
+                            "In den Keller": [
+                                "Du entscheidest dich nicht der Stimme zu folgen und gehst durch die Gittertür in den Keller um bloß nicht der Stimme entgegenzukommen",
+                                ""
+                            ]
+                        }
+                        
+
+                    ]
+                }
+                
+
+            ]
+        }
+        
+
     ]
 }
