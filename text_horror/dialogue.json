@@ -1,13 +1,10 @@
 {
     "main": [
-        "_playsound:ping",
-        "_voice:spitzkopf",
         "Willkommen zu diesem Spiel",
         0.3,
         "! Kein Name (coming soon) !",
         1,
         "Du wachst in einem dunkeln Raum auf und hast starke kopfschmerzen",
-        "_title:",
         "Du bemerkst das du alleine in diesem Raum bist und versuchst Licht zu finden",
         "Du bemerkst Licht das durch eine Spalte scheint und gehst dort hin",
         "Du bist angekommen und bemerkst das vor dir eine stabile Holztür ist",
@@ -19,7 +16,6 @@
         "Das Brett am Fenster versuchen rauszureißen oder den Schrotthaufen plündern ?",
         {
             "Brett rausreißen": [
-                "_title:",
                 "Du hast das Brett mit leichtigkeit rausgerissen und siehs das das Fenster offen ist",
                 "Dadurch bemerkst du das du mitten in einem Wald bist, du bemerkst nichts weiteres weil es dunkel ist",
                 "Du kannst das Fenster aber nicht ewig offen lassen weil du bemerkt werden könntest",
@@ -28,34 +24,27 @@
                 "Durch das Fenster nach draußen fliehen oder das Fenster wieder schließen und den Schrotthaufen plündern ?",
                 {
                     "Fliehen": [
-                        "_title:",
                         "Du entkommst aus dem dunkelen Raum",
                         "_jump:zweitestory(gameover)"
                     ],
                     "Schrotthaufen plündern": [
-                        "_title:",
-                        "Du schließt erfolgreich das Fenster und gehst weiter zum Schrotthaufen",
-                        "_jump:Schrotthaufen durchsuchen"
+                        "Du schließt erfolgreich das Fenster und gehst weiter zum Schrotthaufen"
                     ]
                 }
             ],
             "Schrotthaufen durchsuchen": [
-                "_title:",
                 "Du plünderst den Schrotthaufen und versuchst etwas nützliches zu finden",
                 "Du findest im Schrotthaufen einen Draht den man als Dietrich verwenden könnte",
                 "Mit diesem Dietrich könntest du die Tür versuchen aufzuschließen oder du nimmst den Dietrich mit und fliehst durch das Fenster",
                 "Den Dietrich mitnehmen und durch das Fenster fliehen oder versuchen die Tür mit dem Dietrich aufzuschließen",
                 {
                     "Durch das Fenster fliehen": [
-                        "_title:",
                         "_jump:zweitestory(gameover2)"
                     ],
                     "Tür versuchen aufzuschließen": [
-                        "_title:",
                         "Du gehst wieder zur Tür und versuchst die Tür mit dem Dietrich aufzuschließen",
                         "Tutorial: Schlösser knacken (Um ein Schloss mit einem Dietrich zu knacken, musst du eine zufällige kombination mit den Pfeiltasten (Rechts) und (Links) versuchen",
-                        "_lock:code",
-                        "Erfolg",
+                        "_lock:_left_left_right_left",
                         "Du hast das Schloss mit dem Dietrich aufgeschlossen und öffnest vorsichtig die Tür",
                         "Hinter der Tür ist ein voll dekorierter Raum",
                         "In diesem Raum befinden sich zwei wetere Türen, eine Tür die nach draußen führt und eine Tür die weiter ins Haus führt",
@@ -69,8 +58,8 @@
                                 {
                                     "Den Schrank durchsuchen": [
                                         "Du schließt und gehst von der merkwürdigen Truhe weg und versuchst den Schrank zu öffen",
-                                        "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(10-15 Schaden)",
-                                        "_weapon:name:15",
+                                        "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(15 Schaden)",
+                                        "_weapon:Jagdmesser:15",
                                         "Du nimmst das Jadgmesser mit und trittst von dem Schrank zurück und stehst jetzt mitten im Raum",
                                         "Du hast die wahl entweder die Tür nach Draußen aufzuschließen oder die Tür die weiter ins Haus führt aufzuschließen oder zurück zu gehen und durch das Fenster zu fliehen",
                                         {
@@ -82,15 +71,15 @@
                                             ],
                                             "Zurück zum letzten Raum": [
                                                 "Du gehst zurück zum dunkelen Raum",
-                                                "jump:zweitestory"
+                                                "_jump:zweitestory"
                                             ]
                                         }
                                     ]
                                 }
                             ],
                             "Den Schrank durchsuchen": [
-                                "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(10-15 Schaden)",
-                                "_weapon:name:15",
+                                "Du öffnest und durchsuchst den Schrank und findest ein Jagdmesser(15 Schaden)",
+                                "_weapon:Jagdmesser:15",
                                 "Du nimmst das Jadgmesser mit und trittst von dem Schrank zurück und stehst jetzt mitten im Raum",
                                 "Du hast die wahl entweder die Tür nach Draußen aufzuschließen oder die Tür die weiter ins Haus führt aufzuschließen oder zurück zu gehen und durch das Fenster zu fliehen oder die Truhe zu öffnen",
                                 {
@@ -105,7 +94,7 @@
                                     ],
                                     "Zurück zum letzten Raum": [
                                         "Du gehst zurück zum dunkelen Raum und verlässt das Haus",
-                                        "jump:zweitestory"
+                                        "_jump:zweitestory"
                                     ]
                                 }
                             ]
@@ -117,17 +106,15 @@
     ],
     "drittestory": [
         "Du gehst zu der Truhe und setzt deinen Dietrich an",
-        "_lock:code",
-        "Erfolg",
+        "_lock:_right_left_right_right",
         "Du hast die Truhe erfolgreich aufgeschlossen und geöffnet",
         "In der Truhe findest du sehr viel Falschgeld und einen kleinen Goldbaren der echt aussieht",
         "Du hast den Goldbaren an dich genommen und plötzlich geht ein Alarm los",
         "Du erschrekst dich und wirfst den Goldbaren zurück in die Truhe und versuchst durch die Tür nach draußen zu fliehen",
         "Du stehst vor der Tür und versuchst das Schloss zu knacken",
-        "_lock:code",
-        "Erfolg",
+        "_lock:_left_left_right_right",
         "Du hast die Tür nach Draußen aufgeschlossen und fliehst in den Wald",
-        "Du fliehst mit einem Dietrich und einem Jagdmesser(10-15 Schaden)"
+        "Du fliehst mit einem Dietrich und einem Jagdmesser(15 Schaden)"
     ],
     "zweitestory(gameover)": [
         "Du fliehst aus dem dunklen Raum in den Wald",
@@ -211,7 +198,7 @@
         "Du findest eine alte verlassene Holzhütte mitten im Wald wo du unterkommen könntest",
         "Es fing an zu Regnen und du gehst in das verlassene Haus und suchst Unterkunft",
         "Du hörst aus dem nichts ein lautes kratzen und ein Guhl artige Bestie kommt zum vorschein",
-        "Du ergreifst dein Jagdmesser und machst dich bereit für den Kampf gegen den Ghul",
+        "Du ergreifst deine Waffe und machst dich bereit für den Kampf gegen den Ghul",
         "du kannst aber auch fliehen, da du einen Dietrich hast kannst du die Tür aufschließen und weg laufen",
         "Die Tür aufschließen und weglaufen oder bleiben",
         {
@@ -225,8 +212,7 @@
             "Bleiben": [
                 "Du bleibst furchtlos stehen und das Wesen lacht dich an",
                 "Plötzlich greift das Wesen dich sofort an und du musst kämpfen",
-                "Du hastt ein Jagdmesser(10-15 Schaden) das du im Kampf gegen das Wesen benutzen kannst",
-                "_fight:kampf",
+                "_enemy:Ghul:20:5",
                 "Du hast das Wesen besiegt und kannst das Haus untersuchen, vielleicht gibt es hier nützliche Gegenstände",
                 "Du endeckst etliche Bücher über Geschichte und bemerkst das dieses Haus ein adliges Haus war, aber auch ein sehr altes",
                 "Du findest einen Zettel wo dein name drauf steht und das dich jemand in diese Gegend bringen sollte",
