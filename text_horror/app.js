@@ -9,11 +9,15 @@ var answers;
 var keys;
 var allowNextDlg = true;
 var voice;
+var playerName;
+var enemyHealth = 0;
+var enemyDamage = 1;
+var health = 25;
+var weaponName = "Fäuste";
+var weaponDamage = 1;
 
 //TODO
-//add skipDlg with right mouse click
 //simple fights
-//playsound
 //save file in local storage
 
 window.addEventListener('contextmenu', (event) => {
@@ -103,6 +107,29 @@ function nextDlg(dlgPointerIncrease = true) {
             dlgKeyMain = dlgLines[dlgPointer].split(':')[1]
             load()
           }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_lock") {
+            nextDlg();
+          }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_weapon") {
+            weaponName = dlgLines[dlgPointer].split(':')[1]
+            weaponDamage = dlgLines[dlgPointer].split(':')[2]
+            nextDlg();
+          }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_enemy") {
+            document.getElementById("enemy-name").innerHTML = dlgLines[dlgPointer].split(":")[1]
+            document.getElementById("enemy-texture").src = "text_horror/assets/textures/" + dlgLines[dlgPointer].split(":")[2] + ".png"
+            enemyHealth = dlgLines[dlgPointer].split(":")[3]
+            enemyDamage = dlgLines[dlgPointer].split(":")[4]
+            document.getElementById("enemy-health").innerHTML = enemyHealth
+            document.getElementById("weapon").innerHTML = weaponName
+            document.getElementById("weapon-damage").innerHTML = weaponDamage
+            document.getElementById("health").innerHTML = health
+            document.getElementById("fight").style.visibility = "unset"
+            document.getElementById("dlg-text").innerHTML = ""
+            document.getElementById("bubble").hidden = true;
+            document.getElementById("answer-box").hidden = true;
+            document.getElementById("triangle").hidden = true;
+          }
         } else
           updateDlg();
       }
@@ -135,4 +162,8 @@ function answered(answerId) {
   for (let j = 0; j < keys.length; j++) {
     answers.item(j).innerHTML = "";
   }
+}
+
+function fight() {
+
 }

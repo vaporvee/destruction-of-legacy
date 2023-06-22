@@ -11,6 +11,10 @@ body {
     user-select: none;
 }
 
+p {
+    font-size: 25px;
+}
+
 .thx-for-playing {
     z-index: -1;
     font-size: 50px;
@@ -33,7 +37,7 @@ body {
     white-space: break-spaces;
 }
 
-#bubble {
+.box {
     border-width: 5px;
     border-style: solid;
     border-color: white;
@@ -47,6 +51,45 @@ body {
     width: 70%;
     height: 50%;
     transform: translate(-50%, -50%);
+}
+
+#bubble {
+    width: 70%;
+    height: 50%;
+}
+
+#fight {
+    visibility: hidden;
+    width: 35%;
+    height: 70%;
+    text-align: center;
+    display: inline-block;
+}
+
+#enemy-texture {
+    width: 256px;
+    height: 256px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: white;
+}
+
+#enemy-name {
+    font-size: 40px;
+    transform: translate(0, -40px);
+}
+
+#enemy-health {
+    font-size: 30px;
+    transform: translate(0, -80px);
+}
+
+#weapon {
+    text-align: left;
+}
+
+#health {
+    text-align: right;
 }
 
 #triangle {
