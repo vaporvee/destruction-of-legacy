@@ -1,6 +1,6 @@
 var speed = 50;
 var typeindex = 0;
-var dlgPointer = localStorage.getItem("dlgPointer");
+var dlgPointer = parseInt(localStorage.getItem("dlgPointer"));
 var dlgFile;
 var dlgKeyMain = localStorage.getItem("dlgKeyMain");
 let dlgLines;
@@ -13,7 +13,7 @@ var playerName;
 var enemyHealth = 0, enemyDamage = 1, enemyStartsHit = false;
 var health = 25;
 var weaponName = localStorage.getItem("weaponName"), continueCount = true;
-var weaponDamage = localStorage.getItem("weaponDamage");
+var weaponDamage = parseInt(localStorage.getItem("weaponDamage"));
 var counttx = 0, countup = true;
 
 //TODO
@@ -25,10 +25,10 @@ window.addEventListener('contextmenu', (event) => {
   speed = 0;
 })
 
-function load() {
+function load(isJump = false) {
   if (!localStorage.getItem("dlgPointer"))
     dlgPointer = 0;
-  if (!localStorage.getItem("dlgKeyMain"))
+  if (!localStorage.getItem("dlgKeyMain") && !isJump)
     dlgKeyMain = "main";
   if (!localStorage.getItem("weaponName"))
     weaponName = "Fäuste";
@@ -112,7 +112,7 @@ function nextDlg(dlgPointerIncrease = true) {
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_jump") {
             dlgKeyMain = dlgLines[dlgPointer].split(':')[1];
-            load();
+            load(true);
             dlgPointer = 0;
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_lock") {
@@ -120,7 +120,7 @@ function nextDlg(dlgPointerIncrease = true) {
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_weapon") {
             weaponName = dlgLines[dlgPointer].split(':')[1];
-            weaponDamage = dlgLines[dlgPointer].split(':')[2];
+            weaponDamage = parseInt(dlgLines[dlgPointer].split(':')[2]);
             console.log(weaponDamage);
             nextDlg();
           }
@@ -138,6 +138,12 @@ function nextDlg(dlgPointerIncrease = true) {
             document.getElementById("bubble").hidden = true;
             document.getElementById("answer-box").hidden = true;
             document.getElementById("triangle").hidden = true;
+          }
+          else if (dlgLines[dlgPointer].split(":")[0] === "_checkpoint") {
+            localStorage.setItem("dlgPointer", dlgPointer.toString());
+            localStorage.setItem("dlgKeyMain", dlgKeyMain);
+            localStorage.setItem("weaponDamage", weaponDamage.toString());
+            localStorage.setItem("weaponName", weaponName);
           }
         } else
           updateDlg();
