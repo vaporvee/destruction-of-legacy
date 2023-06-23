@@ -10,3 +10,4 @@ Das Spiel ist auch spielbar unter: https://texthorror.netlify.app/
 Alle images sind selbst gepixelt.
 Das dialogsystem ist sehr modular gescripted, sodass es in anderen und auch viel größeren Spielen wiederverwendet werden könnte.
 Das Spiel ist so aufgebaut, dass es ohne style oder images in der Konsole laufen könnte, also ist es ein vollständiges Textadventure.
+Es gibt die angewohnheit größere coding projekte auf Englisch zu dokumentieren. Ich hoffe es ist trotzdem verständlich.
