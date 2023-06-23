@@ -32,16 +32,13 @@
                         "_jump:Schrotthaufen durchsuchen"
                     ]
                 }
-
             ],
             "Schrotthaufen": [
                 "Du gehst zum Schrotthaufen",
                 "_jump:Schrotthaufen durchsuchen"
-
             ]
         }
     ],
-
     "Schrotthaufen durchsuchen": [
         "Du plünderst den Schrotthaufen und versuchst etwas nützliches zu finden",
         "Du findest im Schrotthaufen einen Draht den man als Dietrich verwenden könnte",
@@ -111,12 +108,10 @@
                                 "Erfolg",
                                 "Du öffnest die Tür und hinter der Tür ist eine falle und die Falle schnappt dich und du überlebst es nicht",
                                 "_jump:gameover"
-
                             ],
                             "Die Truhe öffnen": [
                                 "_jump:drittestory"
                             ]
-                            
                         }
                     ]
                 }
@@ -124,13 +119,13 @@
         }
     ],
     "gameover": [
-        0,3,
+        0,
+        3,
         "Schlechtes Ende",
         "Du wurdest besiegt und hast es nicht mehr überlebt",
         "Die Geschichte ist vorbei",
         0.1,
         "THE END"
-
     ],
     "drittestory": [
         "Du gehst zu der Truhe und setzt deinen Dietrich an",
@@ -147,7 +142,8 @@
         "Die Person sieht aus wie ein blinder alter man mit Robe",
         "Die Person lacht dich an und spricht zu dir",
         "_title:Fremde Person",
-        0,3,
+        0,
+        3,
         "Willkommen zu deinem zukünftigen Zuhause",
         "Bald wirs du ein Teil unserer Siedlung sein bis zu deinem Tod und darüber hinaus",
         "Die Uralten werden dich finden und dich an diesen Ort binden so wie mich",
@@ -156,63 +152,63 @@
         "Der fremde holt einen magischen Stein aus seiner Tasche und wollte die Hüter herbeirufen",
         "Du überlegst in den Wald zu fliehen und abzuhauen",
         "In den Wald fliehen oder bleiben und warten was passiert",
-    {
-        "Bleiben": [
-            "Du bleibst stehen und wartest was passiert",
-            "Auf einmal erscheinen viele Wesen die fast durchsichtig sind",
-            "Und dich mit meheren dir bekannten Stimmen reden und die Stimmen verzehrter klingen",
-            "Einer der Wesen erschien vor dir und guckt dich mit einem leeren blick an und spricht",
-            "_Title:Uraltes Wesen",
-            0,3,
-            "Wir haben dich gefunden",
-            "Schließt du dich uns freiwillig an ?",
-            "Wenn nicht werden wir dich sowieso zwingen",
-            1,
-            "_Title:",
-            "Du bist sehr überfordert mit dem was gerade passiert und musst dich entscheiden",
-            {
-                "Anschließen": [
-                    "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
-                    "Das Wesen lacht dich an und spricht",
-                    0,3,
-                    "_title:Uraltes Wesen",
-                    "So sei es,",
-                    "Willkommen Bruder",
-                    1,
-                    "_title:",
-                    "Aufeinmal kommt ein gewaltiger Sturm und du wirst eingehüllt mit einem dunkelen Nebel und du hast dabei große Schmerzen",
-                    "Als der Nebel verschwand wurdest du zu einem der Wesen und der alte man freute sich, kniet vor dir und spricht",
-                    0,3,
-                    "_title:Alter Man",
-                    "Kann ich dir zu diensten sein mein Herr",
-                    1,
-                    "_title:",
-                    "Aufeinaml siehst du sehr viele Geister auf dich zu kommen und sich vor dich knien",
-                    "Du erkennst in deinem Wesen wie alle Geister heißen und erkennst das die alle an diesem Ort gebunden sind",
-                    "Du verstehst nicht warum sie vor dir Knien und wolltest sprechen",
-                    "Aufeinmal hattest du keine controlle mehr über deinen Körper und etwas anderes sprach in dir und übernahm deinen Köper",
-                    "_Jump:badending"
-
-                ],
-
-                "Kämpfen": [
-                    "Du machst dich bereit für den kampf mit den Uralten Wesen",
-                    0,3,
-                    "_title:Uraltes Wesen",
-                    "Das wirst du nicht überleben du Narr",
-                    "_fight:Kampf",
-                    "_jump:gameover"
-                ]
-
-            }
-        ],
-
-        "Fliehen": [
-            "Du fliehst in den Wald und keiner folgt dir",
-            "Du fliehst mit einem Dietrich und einem Jagdmesser(15 Schaden)",
-            "_jump:zweitestory"
-        ]
-    }
+        {
+            "Bleiben": [
+                "Du bleibst stehen und wartest was passiert",
+                "Auf einmal erscheinen viele Wesen die fast durchsichtig sind",
+                "Und dich mit meheren dir bekannten Stimmen reden und die Stimmen verzehrter klingen",
+                "Einer der Wesen erschien vor dir und guckt dich mit einem leeren blick an und spricht",
+                "_Title:Uraltes Wesen",
+                0,
+                3,
+                "Wir haben dich gefunden",
+                "Schließt du dich uns freiwillig an ?",
+                "Wenn nicht werden wir dich sowieso zwingen",
+                1,
+                "_Title:",
+                "Du bist sehr überfordert mit dem was gerade passiert und musst dich entscheiden",
+                {
+                    "Anschließen": [
+                        "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
+                        "Das Wesen lacht dich an und spricht",
+                        0,
+                        3,
+                        "_title:Uraltes Wesen",
+                        "So sei es,",
+                        "Willkommen Bruder",
+                        1,
+                        "_title:",
+                        "Aufeinmal kommt ein gewaltiger Sturm und du wirst eingehüllt mit einem dunkelen Nebel und du hast dabei große Schmerzen",
+                        "Als der Nebel verschwand wurdest du zu einem der Wesen und der alte man freute sich, kniet vor dir und spricht",
+                        0,
+                        3,
+                        "_title:Alter Man",
+                        "Kann ich dir zu diensten sein mein Herr",
+                        1,
+                        "_title:",
+                        "Aufeinaml siehst du sehr viele Geister auf dich zu kommen und sich vor dich knien",
+                        "Du erkennst in deinem Wesen wie alle Geister heißen und erkennst das die alle an diesem Ort gebunden sind",
+                        "Du verstehst nicht warum sie vor dir Knien und wolltest sprechen",
+                        "Aufeinmal hattest du keine controlle mehr über deinen Körper und etwas anderes sprach in dir und übernahm deinen Köper",
+                        "_Jump:badending"
+                    ],
+                    "Kämpfen": [
+                        "Du machst dich bereit für den kampf mit den Uralten Wesen",
+                        0,
+                        3,
+                        "_title:Uraltes Wesen",
+                        "Das wirst du nicht überleben du Narr",
+                        "_fight:Kampf",
+                        "_jump:gameover"
+                    ]
+                }
+            ],
+            "Fliehen": [
+                "Du fliehst in den Wald und keiner folgt dir",
+                "Du fliehst mit einem Dietrich und einem Jagdmesser(15 Schaden)",
+                "_jump:zweitestory"
+            ]
+        }
     ],
     "zweitestory(gameover)": [
         "Du fliehst aus dem dunklen Raum in den Wald",
@@ -278,7 +274,8 @@
                                 "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
                                 "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
                                 "Die Wesen sprechen zu dir",
-                                0,3,
+                                0,
+                                3,
                                 "_title:Urlates Wesen",
                                 "Schließe dich uns an oder wir zwingen dich",
                                 "Nehme dein Erbe an und werde einer von uns",
@@ -291,7 +288,8 @@
                                     "Anschließen": [
                                         "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
                                         "Das Wesen lacht dich an und spricht",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Uraltes Wesen",
                                         "So sei es,",
                                         "Willkommen Bruder",
@@ -302,13 +300,10 @@
                                         "Du wirst zu einem Dorf gebracht wo ein alter blinder Man stand und sich freute",
                                         "Aus dem nichts kamen mehere Geister ins Dorf und knieten vor dir",
                                         "_jump:badending"
-
                                     ],
-
                                     "Kampf": [
                                         "_Fight:Kampf",
                                         "_jump:gameover"
-
                                     ]
                                 }
                             ]
@@ -322,7 +317,8 @@
                 "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
                 "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
                 "Die Wesen fangen an zu sprechen",
-                0,3,
+                0,
+                3,
                 "_title:Uraltes Wesen",
                 "Schließe dich uns an und werde einer von uns",
                 1,
@@ -332,7 +328,8 @@
                     "Anschließen": [
                         "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
                         "Das Wesen lacht dich an und spricht",
-                        0,3,
+                        0,
+                        3,
                         "_title:Uraltes Wesen",
                         "So sei es,",
                         "Willkommen Bruder",
@@ -344,15 +341,12 @@
                         "Aus dem nichts kamen mehere Geister ins Dorf und knieten vor dir",
                         "_jump:badending"
                     ],
-
                     "Kampf": [
                         "Du stellst dich gegen die Wesen und sie greifen dich an",
                         "_fight:Kampf",
                         "_jump:gameover"
                     ]
                 }
-
-
             ]
         }
     ],
@@ -406,12 +400,14 @@
                                 "Du stehst im Zimmer und suchst woher die Stimme kommen könnte aber du erkennst nichts und siehst niemanden",
                                 "Auf einmal knallt die Tür zu und dunkele, durchsichtige gestalten umkreisen dich und schauen dich mit leeren blicken an",
                                 "Und die alten Wesen sprechen zu dir",
-                                0,3,
+                                0,
+                                3,
                                 "_title:Uraltes Wesen",
                                 "Wir haben dich gefunden *lacht*",
                                 "Wir bitten dich schließe du dich uns an und erhalte dein Erbe",
                                 "Oder wir müssen dich bekämpfen",
-                                0,1,
+                                0,
+                                1,
                                 "SEI KEIN NARR",
                                 1,
                                 "_title:",
@@ -421,7 +417,8 @@
                                     "Anschließen": [
                                         "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
                                         "Das Wesen lacht dich an und spricht",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Uraltes Wesen",
                                         "So sei es,",
                                         "Willkommen Bruder",
@@ -433,10 +430,10 @@
                                         "Aus dem nichts kamen mehere Geister ins Dorf und knieten vor dir",
                                         "_jump:badending"
                                     ],
-
                                     "Kampf": [
                                         "Du entscheidest dich gegen die Wesen und musst kämpfen",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Uraltes Wesen",
                                         "Du Narr wirst es nicht überleben",
                                         "Hättest du deinen Erben angenommen",
@@ -453,7 +450,8 @@
                                 "Du gehst durch den Gang und erkennst einen riesigen Raum mit einem Altar",
                                 "Der Raum ist sehr dunkel und du hörtst mehere Schritte",
                                 "Aus dem nichts erscheint ein Geist in Ritterrüstung und spricht zu dir",
-                                0,3,
+                                0,
+                                3,
                                 "_title:Uralter Ritter",
                                 "Hallo Spieler und Willkommen",
                                 "Ich gehöre nicht zu den versiegelten und ich bin nicht an ihrem Ort gebunden",
@@ -467,7 +465,8 @@
                                 "Du fragst den alten Ritter warum du hier bist und warum du so eine wichtige Rolle spielst",
                                 "Plötzlich als der Ritter redete und ir erzählte um was es ging und warum du hier gelandet ist kamen Uralte Wesen in den Raum",
                                 "_title:Uraltes Wesen",
-                                0,3,
+                                0,
+                                3,
                                 "Hier hast du dich also versteckt und hast dich mit Wenzel dem verräter verbündet",
                                 "Es ist noch nicht zu spät endlich haben wir auch dich gefunden Wenzel",
                                 "Spieler willst du dich uns anschließen ?",
@@ -483,7 +482,8 @@
                                         "_title:Wenzel",
                                         "Du verdammter Narr",
                                         "Aber wie du willst",
-                                        0,3,
+                                        0,
+                                        3,
                                         "Ich werde dich Erbe und die Wesen vernichten",
                                         1,
                                         "_title:",
@@ -491,7 +491,8 @@
                                         "Die Uralten Wesen griffen den Ritter an und retteten dich vor seinem Hieb",
                                         "Der Ritter schwächte die Wesen und warf die vier Wesen auf einen Haufen",
                                         "Du versucht etwas zu finden um dich zu verteidigen aber findest nicht",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Wenzel",
                                         "Hättest du dich mir nur angeschlossen",
                                         "Und das soll der Erbe sein *lacht* tut mir leid aber du stehst mir im weg und ich kann es nicht zulassen das du deinen Erben kriegst du bist eine zu große bedrohung für mich",
@@ -502,7 +503,8 @@
                                         "Als der nebel verschwand warst du größer als vorher und sahst aus wie einer der Uralten wesen nur mächiger",
                                         "Du wurdest gewandelt aber nicht nur dein Körper auch dein Verstand du bemerkst das etwas gewisses dich leicht kontrolliert aber bemerkst es nicht ganz richtig",
                                         "Der Ritter sah zu dir und spricht",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Wenzel",
                                         "Du wirst mich nicht aufhalten ich werde dich vernichtenegal ob Mensch oder ?-Name-?",
                                         1,
@@ -517,25 +519,26 @@
                                         "Du hast den Ritter im Kampf vernichtet",
                                         "Und du befahlst deiner armee wiederins Dorf zu gehen",
                                         "Im Dorf angekommen werfen sich alle Geister und wesen vor dir Nieder",
-                                        0,3,
+                                        0,
+                                        3,
                                         "Schlechtes Ende",
                                         "Du wurdest auf ewig an diesem Ort gebunden und verlorst immer mehr deinen Willen durch eine andere Macht",
                                         "Du bist nicht mehr du selber und bist der Herrscher einer verfluchten Siedlung doch findest du keine Ruhe und leidest in dieser Gestalt weil die schmerzen nicht aufhören",
                                         "Du und deine ?-Name-? entführen im laufe der Jahre weitere Menschen in dieser Gegend um sie in normale Geister oder ?-Name-? zu wandeln und ihrem Willen zu berauben",
                                         "Nach hunderten Jahren kam enes tages ein Held und erlöste die Siedlung und ebenso dich",
                                         "Und du fandest lang ersehnte Ruhe",
-                                        0,1,
+                                        0,
+                                        1,
                                         "THE END"
-                                        
                                     ],
-
                                     "Wenzel helfen": [
                                         "Du entscheidest dich Wenzel zu helfen und die ?-Name-? anzugreifen",
                                         "Wenzel gibt dir eine Brennende Keule(250 Schaden) und du ergreifst die Keule mit leichtigkeit",
                                         "_weapon:Brennende Keule(250 Schaden)",
                                         "_fight:Kampf",
                                         "Du hast ein ?-Name-? besiegt und Wenzel hat in der Zeit die anderen drei besiegt und ihr warft sie auf einen Haufen",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Wenzel",
                                         "Gut das du mir vertraut hast und jetzt geh zum Altar durch dein Erben hast du die Macht uns alle zu befreien",
                                         "Stell dich neben mich und halt deine Hand auf dem Altar und sprich mir nach",
@@ -543,13 +546,16 @@
                                         "_title:",
                                         "Du stellst dich neben Wenzel und sprichst etwas auf einer merkwürdigen Sprache nach",
                                         "Als du zu Ende gesprochen hast freute sich Wenzel sehr",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title Wenzel",
                                         "Ah endlich ist mein Plan der befreieung aufgegangen und das durch dich Spieler",
                                         "Der Plan das endlich",
-                                        0,1,
+                                        0,
+                                        1,
                                         "Ich Herrscher werde",
-                                        0,3,
+                                        0,
+                                        3,
                                         "Du hast deinen Erben eben gerade abgeschworen und ihn mir überlassen jetzt bin ich der Herrscher",
                                         1,
                                         "_title:",
@@ -558,17 +564,20 @@
                                         "Der Nebel verschwand und Wenzel sah nicht mehr aus wie der Selbe",
                                         "Wenzel war nun selber ein ?-Name-? nur mächtiger und er schrie und eine große menge Geister und ?-Name-? erschienen in der Halle",
                                         "Paar der ?-Name-? kamen zu Wenzel und formten sich zu einem unheimlichen Schwert",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Urform Wenzel",
                                         "Jetzt habe ich noch eine große aufgabe",
-                                        0,1,
+                                        0,
+                                        1,
                                         "Ich muss dich in einem Zweitkampf besiegen ziehe deine Waffe und stelle dich deinem Schicksal",
                                         1,
                                         "_title:",
                                         "Wenzel hat dich verraten und hat deinen erben an sich genommen",
                                         "Du musst Wenzel besiegen",
                                         "_fight:Kampf",
-                                        0,3,
+                                        0,
+                                        3,
                                         "_title:Urform Wenzel",
                                         "Nein wie konntest du mich besiegen",
                                         ".....",
@@ -579,14 +588,12 @@
                                             "Erbe annehmen": [
                                                 "Du nimmst den Erbe wieder an und der Dunkele Nebel umhüllt dich",
                                                 "_jump:badending"
-
                                             ],
-
-                                            "Nichts tun":
-                                            [
+                                            "Nichts tun": [
                                                 "Alle ?-Name-? und fast alle Geister lösten sich in luft auf",
                                                 "Du verstehst nicht das vor sich geht und einer der Geister spricht zu dir",
-                                                0,3,
+                                                0,
+                                                3,
                                                 "_title:Erlöster Geist",
                                                 "Danke dir",
                                                 "Dank dir sind wir endlich frei und können endlich ruhe finden",
@@ -599,28 +606,20 @@
                                                 "Während du in deinen Gedanken bist gehst wieder in das Haus und liest die Bücher die noch im haus rumliegen",
                                                 "Du suchst ob du etwas über deinen Erben rausfinden könntest und endeckst eine Karte mit meheren Roten Punkten",
                                                 "Einer der Roten Punkte ist genau auf der Karte dort wo du bist und erkennst das es mehere verfluchte ebenen gibt",
-                                                0,3,
+                                                0,
+                                                3,
                                                 "Gutes Ende",
                                                 "Du hast das Spiel überlebt und Wenzel besiegt",
                                                 "Du hast der Siedlung ihren Fluch genommen und alle Geister und ?-Name-? erlöst",
                                                 "Du bleibst in dem haus und studierst weiter die alten Bücher",
                                                 "Du machst dir gedanken eines Tages weiter zu reisen um die weiteren Ebenen auf der Karte von dem Fluch zu befreien",
-                                                0,1,
+                                                0,
+                                                1,
                                                 "THE END"
-
                                             ]
                                         }
-                                        
-
-
-
                                     ]
                                 }
-
-                                
-                            
-
-
                             ]
                         }
                     ]
@@ -629,16 +628,17 @@
         }
     ],
     "badending": [
-        0,3,
+        0,
+        3,
         "Schlechtes Ende",
         "Du wurdest auf ewig an diesem Ort gebunden",
         "Du bist nicht mehr du selber und aus irgendeinem Grund wirst du als eine art König betrachtet",
         "Du und deine Geister entführen im laufe der Zeit weitere Menschen in diese Gegend",
         "Und wandeln sie um bis eines tages ein Held kam",
         "Und alle wie auch dich vernichtete",
-        0,1,
+        0,
+        1,
         "THE END"
-
     ],
     "erstestory": [
         "Du gehst zu der Truhe und setzt deinen Dietrich an",
@@ -655,7 +655,8 @@
         "Die Person sieht aus wie ein blinder alter man mit Robe",
         "Die Person lacht dich an und spricht zu dir",
         "_title:Fremde Person",
-        0,3,
+        0,
+        3,
         "Willkommen zu deinem zukünftigen Zuhause",
         "Bald wirs du ein Teil unserer Siedlung sein bis zu deinem Tod und darüber hinaus",
         "Die Uralten werden dich finden und dich an diesen Ort binden so wie mich",
@@ -664,90 +665,78 @@
         "Der fremde holt einen magischen Stein aus seiner Tasche und wollte die Hüter herbeirufen",
         "Du überlegst in den Wald zu fliehen und abzuhauen",
         "In den Wald fliehen oder bleiben und warten was passiert",
-
-    {
-        "Fliehen": [
-            "du fliehst so schnell du kannst in den Wald",
-            "Nach einer weile laufen merkst du das keiner dir gefolgt ist",
-            "Als du kurz stehen geblieben bist merkst du etwas unter dir etwas",
-            "eine Schatulle offenbart sich und du überlegst sie zu öffen",
-            "Die Schatulle versuchen aufzuschließen oder die Schatulle ignoriern",
-            {
-                "Öffnen": [
-                    "Du legst deinen Dietrich an und versuchst die Schatulle zu öffen",
-                    "_lock:_right_right_right_left",
-                    "Erfolg",
-                    "Du hast in der Schatulle ein Jagdmesser(15 Schaden) gefunden",
-                    "Du hast das Jagdmesser mitgenommen und bist weiter geflohen",
-                    "_jump:zweitestory"
-
-                ],
-
-                "weiter Fliehen": [
-                    "du lässt die Schatulle liegen und rennst weiter in den Wald",
-                    "_jump:zweitestory(gameover2)"
-
-                ]
-            }
-            
-            
-
-        ],
-
-        "Bleiben": [
-            "Du bleibst stehen und wartest was passiert",
-            "Auf einmal erscheinen viele Wesen die fast durchsichtig sind",
-            "Und dich mit meheren dir bekannten Stimmen reden und die Stimmen verzehrter klingen",
-            "Einer der Wesen erschien vor dir und guckt dich mit einem leeren blick an und spricht",
-            "_Title:Uraltes Wesen",
-            0,3,
-            "Wir haben dich gefunden",
-            "Schließt du dich uns freiwillig an ?",
-            "Wenn nicht werden wir dich sowieso zwingen",
-            1,
-            "_Title:",
-            "Du bist sehr überfordert mit dem was gerade passiert und musst dich entscheiden",
-            {
-                "Anschließen": [
-                    "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
-                    "Das Wesen lacht dich an und spricht",
-                    0,3,
-                    "_title:Uraltes Wesen",
-                    "So sei es,",
-                    "Willkommen Bruder",
-                    1,
-                    "_title:",
-                    "Aufeinmal kommt ein gewaltiger Sturm und du wirst eingehüllt mit einem dunkelen Nebel und du hast dabei große Schmerzen",
-                    "Als der Nebel verschwand wurdest du zu einem der Wesen und der alte man freute sich, kniet vor dir und spricht",
-                    0,3,
-                    "_title:Alter Man",
-                    "Kann ich dir zu diensten sein mein Herr",
-                    1,
-                    "_title:",
-                    "Aufeinaml siehst du sehr viele Geister auf dich zu kommen und sich vor dich knien",
-                    "Du erkennst in deinem Wesen wie alle Geister heißen und erkennst das die alle an diesem Ort gebunden sind",
-                    "Du verstehst nicht warum sie vor dir Knien und wolltest sprechen",
-                    "Aufeinmal hattest du keine controlle mehr über deinen Körper und etwas anderes sprach in dir und übernahm deinen Köper",
-                    "_Jump:badending"
-
-                ],
-
-                "Kämpfen": [
-                    "Du machst dich bereit für den kampf mit den Uralten Wesen",
-                    0,3,
-                    "_title:Uraltes Wesen",
-                    "Das wirst du nicht überleben du Narr",
-                    "_fight:Kampf",
-                    "_jump:gameover"
-                ]
-
-            }
-
-
-        ]
-    }
-    
-
-
-]
+        {
+            "Fliehen": [
+                "du fliehst so schnell du kannst in den Wald",
+                "Nach einer weile laufen merkst du das keiner dir gefolgt ist",
+                "Als du kurz stehen geblieben bist merkst du etwas unter dir etwas",
+                "eine Schatulle offenbart sich und du überlegst sie zu öffen",
+                "Die Schatulle versuchen aufzuschließen oder die Schatulle ignoriern",
+                {
+                    "Öffnen": [
+                        "Du legst deinen Dietrich an und versuchst die Schatulle zu öffen",
+                        "_lock:_right_right_right_left",
+                        "Erfolg",
+                        "Du hast in der Schatulle ein Jagdmesser(15 Schaden) gefunden",
+                        "Du hast das Jagdmesser mitgenommen und bist weiter geflohen",
+                        "_jump:zweitestory"
+                    ],
+                    "weiter Fliehen": [
+                        "du lässt die Schatulle liegen und rennst weiter in den Wald",
+                        "_jump:zweitestory(gameover2)"
+                    ]
+                }
+            ],
+            "Bleiben": [
+                "Du bleibst stehen und wartest was passiert",
+                "Auf einmal erscheinen viele Wesen die fast durchsichtig sind",
+                "Und dich mit meheren dir bekannten Stimmen reden und die Stimmen verzehrter klingen",
+                "Einer der Wesen erschien vor dir und guckt dich mit einem leeren blick an und spricht",
+                "_Title:Uraltes Wesen",
+                0,
+                3,
+                "Wir haben dich gefunden",
+                "Schließt du dich uns freiwillig an ?",
+                "Wenn nicht werden wir dich sowieso zwingen",
+                1,
+                "_Title:",
+                "Du bist sehr überfordert mit dem was gerade passiert und musst dich entscheiden",
+                {
+                    "Anschließen": [
+                        "Du bleibst stehen und sagst dem Wesen du möchtest dich ihnen anschließen",
+                        "Das Wesen lacht dich an und spricht",
+                        0,
+                        3,
+                        "_title:Uraltes Wesen",
+                        "So sei es,",
+                        "Willkommen Bruder",
+                        1,
+                        "_title:",
+                        "Aufeinmal kommt ein gewaltiger Sturm und du wirst eingehüllt mit einem dunkelen Nebel und du hast dabei große Schmerzen",
+                        "Als der Nebel verschwand wurdest du zu einem der Wesen und der alte man freute sich, kniet vor dir und spricht",
+                        0,
+                        3,
+                        "_title:Alter Man",
+                        "Kann ich dir zu diensten sein mein Herr",
+                        1,
+                        "_title:",
+                        "Aufeinaml siehst du sehr viele Geister auf dich zu kommen und sich vor dich knien",
+                        "Du erkennst in deinem Wesen wie alle Geister heißen und erkennst das die alle an diesem Ort gebunden sind",
+                        "Du verstehst nicht warum sie vor dir Knien und wolltest sprechen",
+                        "Aufeinmal hattest du keine controlle mehr über deinen Körper und etwas anderes sprach in dir und übernahm deinen Köper",
+                        "_Jump:badending"
+                    ],
+                    "Kämpfen": [
+                        "Du machst dich bereit für den kampf mit den Uralten Wesen",
+                        0,
+                        3,
+                        "_title:Uraltes Wesen",
+                        "Das wirst du nicht überleben du Narr",
+                        "_fight:Kampf",
+                        "_jump:gameover"
+                    ]
+                }
+            ]
+        }
+    ]
 }
