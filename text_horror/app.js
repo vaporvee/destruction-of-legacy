@@ -1,20 +1,20 @@
-var speed = 50;
-var typeindex = 0;
-var dlgPointer = 0;
-var dlgFile;
-var dlgKeyMain = "main";
-let dlgLines;
-var skipDlg = false;
-var answers;
-var keys;
-var allowNextDlg = true;
-var voice;
-var playerName;
-var enemyHealth = 0;
-var enemyDamage = 1;
-var health = 25;
-var weaponName = "Fäuste";
-var weaponDamage = 1;
+var speed = 50
+var typeindex = 0
+var dlgPointer = 0
+var dlgFile
+var dlgKeyMain = "main"
+let dlgLines
+var skipDlg = false
+var answers
+var keys
+var allowNextDlg = true
+var voice
+var playerName
+var enemyHealth = 0, enemyDamage = 1, enemyStartsHit = false;
+var health = 25
+var weaponName = "Fäuste", continueCount = true
+let weaponDamage = 1
+var counttx = 0, countup = true;
 
 //TODO
 //simple fights
@@ -29,10 +29,10 @@ function load() {
   fetch("text_horror/dialogue.json") //Load json file here
     .then(Response => Response.json())
     .then(data => {
-      dlgFile = data;
-      changeDlg(dlgKeyMain); //Set "start" key from dialogue.json
-      skipDlg = true; //Allow skipping to next dialogue
-      nextDlg(false); //Skip to first
+      dlgFile = data
+      changeDlg(dlgKeyMain) //Set "start" key from dialogue.json
+      skipDlg = true //Allow skipping to next dialogue
+      nextDlg(false) //Skip to first
     });
 }
 
@@ -47,23 +47,23 @@ function changeDlg(dlgKey) {
 }
 
 function updateDlg() {
-  typeindex = 0;
-  document.getElementById("dlg-text").innerHTML = "";
-  document.getElementById("triangle").hidden = true;
-  typeWriter();
+  typeindex = 0
+  document.getElementById("dlg-text").innerHTML = ""
+  document.getElementById("triangle").hidden = true
+  typeWriter()
 }
 
 function typeWriter() {
   if (typeindex < dlgLines[dlgPointer].length) {
-    document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
+    document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex)
     if (voice != null && typeindex % 3 == 1) {
-      voice.load();
-      voice.play();
+      voice.load()
+      voice.play()
     }
     typeindex++;
-    setTimeout(typeWriter, speed);
+    setTimeout(typeWriter, speed)
   } else if (allowNextDlg)
-    document.getElementById("triangle").hidden = false;
+    document.getElementById("triangle").hidden = false
 }
 
 function nextDlg(dlgPointerIncrease = true) {
@@ -74,7 +74,7 @@ function nextDlg(dlgPointerIncrease = true) {
       dlgPointer++
     if (dlgPointer < dlgLines.length) {
       if (typeof dlgLines[dlgPointer] === 'number') {
-        speed = 50 / dlgLines[dlgPointer];
+        speed = 50 / dlgLines[dlgPointer]
         skipDlg = true
         nextDlg();
       }
@@ -82,22 +82,22 @@ function nextDlg(dlgPointerIncrease = true) {
         if (dlgLines[dlgPointer].startsWith("_")) {
           skipDlg = true
           if (dlgLines[dlgPointer].split(":")[0] === "_title") {
-            document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
+            document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1]
             nextDlg();
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_voice") {
             if (dlgLines[dlgPointer].split(':')[1].length != 0)
-              voice = new Audio("text_horror/assets/voices/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
+              voice = new Audio("text_horror/assets/voices/" + dlgLines[dlgPointer].split(':')[1] + ".wav")
             else
-              voice = null;
+              voice = null
             nextDlg();
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_playsound") {
             var sound
             if (dlgLines[dlgPointer].split(':')[1].length != 0) {
-              sound = new Audio("text_horror/assets/sounds/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
-              sound.load();
-              sound.play();
+              sound = new Audio("text_horror/assets/sounds/" + dlgLines[dlgPointer].split(':')[1] + ".wav")
+              sound.load()
+              sound.play()
             }
             else
               sound = null;
@@ -113,6 +113,7 @@ function nextDlg(dlgPointerIncrease = true) {
           else if (dlgLines[dlgPointer].split(":")[0] === "_weapon") {
             weaponName = dlgLines[dlgPointer].split(':')[1]
             weaponDamage = dlgLines[dlgPointer].split(':')[2]
+            console.log(weaponDamage)
             nextDlg();
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_enemy") {
@@ -120,50 +121,96 @@ function nextDlg(dlgPointerIncrease = true) {
             document.getElementById("enemy-texture").src = "text_horror/assets/textures/" + dlgLines[dlgPointer].split(":")[2] + ".png"
             enemyHealth = dlgLines[dlgPointer].split(":")[3]
             enemyDamage = dlgLines[dlgPointer].split(":")[4]
+            countWeaponDamage()
             document.getElementById("enemy-health").innerHTML = enemyHealth
             document.getElementById("weapon").innerHTML = weaponName
-            document.getElementById("weapon-damage").innerHTML = weaponDamage
             document.getElementById("health").innerHTML = health
             document.getElementById("fight").style.visibility = "unset"
             document.getElementById("dlg-text").innerHTML = ""
-            document.getElementById("bubble").hidden = true;
-            document.getElementById("answer-box").hidden = true;
-            document.getElementById("triangle").hidden = true;
+            document.getElementById("bubble").hidden = true
+            document.getElementById("answer-box").hidden = true
+            document.getElementById("triangle").hidden = true
           }
         } else
           updateDlg();
       }
       else if (typeof dlgLines[dlgPointer] === 'object') {
         allowNextDlg = false;
-        document.getElementById("triangle").hidden = true;
-        document.getElementById("answer-box").hidden = false;
-        answers = document.getElementsByClassName("answer");
-        keys = Object.keys(dlgLines[dlgPointer]);
+        document.getElementById("triangle").hidden = true
+        document.getElementById("answer-box").hidden = false
+        answers = document.getElementsByClassName("answer")
+        keys = Object.keys(dlgLines[dlgPointer])
         for (let j = 0; j < keys.length; j++) {
-          answers.item(j).innerHTML = keys[j];
+          answers.item(j).innerHTML = keys[j]
         }
       }
     }
     else {
-      document.getElementById("bubble").hidden = true;
-      document.getElementById("answer-box").hidden = true;
-      document.getElementById("triangle").hidden = true;
+      document.getElementById("bubble").hidden = true
+      document.getElementById("answer-box").hidden = true
+      document.getElementById("triangle").hidden = true
     }
   }
 }
 
 function answered(answerId) {
-  dlgFile = dlgLines[dlgPointer];
-  document.getElementById("answer-box").hidden = true;
-  changeDlg(document.getElementById(answerId).innerHTML);
-  allowNextDlg = true;
-  skipDlg = true;
-  nextDlg(false);
+  dlgFile = dlgLines[dlgPointer]
+  document.getElementById("answer-box").hidden = true
+  changeDlg(document.getElementById(answerId).innerHTML)
+  allowNextDlg = true
+  skipDlg = true
+  nextDlg(false)
   for (let j = 0; j < keys.length; j++) {
-    answers.item(j).innerHTML = "";
+    answers.item(j).innerHTML = ""
   }
 }
 
 function fight() {
+  continueCount = false
+  if (!enemyStartsHit) {
+    if (!continueCount) {
+      enemyStartsHit = true
+      setTimeout(() => {
+        enemyHealth = enemyHealth - counttx
+        if (enemyHealth < 1) {
+          setTimeout(() => {
+            document.getElementById("fight").style.visibility = "hidden"
+            document.getElementById("bubble").hidden = false
+            document.getElementById("triangle").hidden = false
+            nextDlg()
+          }, 1000)
+        }
+        document.getElementById("enemy-health").innerHTML = enemyHealth
+        document.getElementById("weapon-damage").innerHTML = weaponDamage
+        setTimeout(() => {
+          health = health - enemyDamage
+          document.getElementById("health").innerHTML = health
+          if (health > 0) {
+            enemyStartsHit = false
+            continueCount = true
+            countWeaponDamage()
+          }
+          else
+            setTimeout(() => { document.getElementById("fight").style.visibility = "hidden" }, 1000)
+        }, 2000)
+      }, 100)
+    } else
+      countWeaponDamage()
+  }
+}
 
+function countWeaponDamage() {
+  if (countup) {
+    ++counttx;
+    if (counttx >= weaponDamage)
+      countup = false;
+  }
+  else {
+    --counttx;
+    if (counttx <= 0)
+      countup = true;
+  }
+  document.getElementById("weapon-damage").innerHTML = counttx
+  if (continueCount)
+    setTimeout(countWeaponDamage, 100)
 }

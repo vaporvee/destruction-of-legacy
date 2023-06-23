@@ -11,6 +11,17 @@
 </head>
 
 <body onpageshow="load()">
+    <div hidden="true" class="box" id="fight">
+        <img draggable="false" id="enemy-texture"><br>
+        <p><span id="enemy-name"></span> Leben: <span id="enemy-health"></span></p>
+        <img draggable="false" onclick="fight()" src="text_horror\assets\sword.png" width="100px">
+        <br><br><br>
+        <p><span id="weapon"></span>
+            (<span id="weapon-damage"></span>)
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Leben:<span id="health"></span>
+        </p>
+    </div>
     <div class="box" id="bubble" onclick="nextDlg()">
         <p id="title"></p>
         <p id="dlg-text"></p>
@@ -20,17 +31,6 @@
         <p class="answer" id="1" onclick="answered(this.id)"></p>
         <p class="answer" id="2" onclick="answered(this.id)"></p>
         <p class="answer" id="3" onclick="answered(this.id)"></p>
-    </div>
-    <div hidden="true" class="box" id="fight">
-        <img id="enemy-texture"><br>
-        <p><span id="enemy-name"></span> Leben: <span id="enemy-health"></span></p>
-        <img onclick="fight()" src="text_horror\assets\sword.png" width="100px">
-        <br><br><br>
-        <p><span id="weapon"></span>
-            (<span id="weapon-damage"></span>)
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Leben:<span id="health"></span>
-        </p>
     </div>
     <img draggable="false" hidden="true" id="triangle" src="text_horror/assets/triangle.png">
     <p class="thx-for-playing">Danke fürs spielen!</p>
