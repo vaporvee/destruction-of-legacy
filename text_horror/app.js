@@ -1,3 +1,4 @@
+// BITTE VORHER README LESEN
 var speed = 50;
 var typeindex = 0;
 var dlgPointer = parseInt(localStorage.getItem("dlgPointer"));
