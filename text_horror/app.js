@@ -140,7 +140,7 @@ function nextDlg(dlgPointerIncrease = true) {
             document.getElementById("triangle").hidden = true;
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_checkpoint") {
-            localStorage.setItem("dlgPointer", dlgPointer.toString());
+            localStorage.setItem("dlgPointer", (dlgPointer + 1).toString());
             localStorage.setItem("dlgKeyMain", dlgKeyMain);
             localStorage.setItem("weaponDamage", weaponDamage.toString());
             localStorage.setItem("weaponName", weaponName);
