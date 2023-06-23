@@ -49,6 +49,9 @@ function resetGame() {
     location.reload();
   }
 }
+function reloadGame() {
+  location.reload();
+}
 //change current dialogue lines with dictionary keys
 function changeDlg(dlgKey) {
   if (typeof dlgFile[dlgKey] === "string") {
