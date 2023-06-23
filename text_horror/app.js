@@ -40,6 +40,15 @@ function load(isJump = false) {
       nextDlg(false); //Skip to first
     });
 }
+function resetGame() {
+  if (confirm("Willst du wirklich deinen gesamten Fortschritt im Spiel löschen?") == true) {
+    localStorage.setItem("dlgPointer", "0");
+    localStorage.setItem("dlgKeyMain", "main");
+    localStorage.setItem("weaponDamage", "1");
+    localStorage.setItem("weaponName", "Fäuste");
+    location.reload();
+  }
+}
 //change current dialogue lines with dictionary keys
 function changeDlg(dlgKey) {
   if (typeof dlgFile[dlgKey] === "string") {
