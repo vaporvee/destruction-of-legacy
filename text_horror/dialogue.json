@@ -242,7 +242,7 @@
                     "Bleiben": [
                         "Du bleibst stehen und zeigst keine Angst",
                         "Das Wesen lacht und greift dich sofort an",
-                        "_Kampf:Fight",
+                        "_enemy:Ghul:ghul:25:10",
                         "_jump:gameover"
                     ],
                     "Fliehen": [
@@ -254,7 +254,7 @@
                         "du drehst dich sofort um und erkennst das etwas hinter einem Baum verschwindet",
                         "du rennst weiter und aufeinmal kommen viele Wesen zu dir und kreisen dich ein",
                         "Die Wesen sprechen zu dir und sagen schließe du uns an",
-                        "_Kampf:Fight",
+                        "_enemy:Wesen:wesen:600:10",
                         {
                             "Ins Haus": [
                                 "Du gehst in das verlassene Haus und die Tür knallt zu",
