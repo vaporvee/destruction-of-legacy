@@ -16,10 +16,6 @@ var weaponName = localStorage.getItem("weaponName"), continueCount = true;
 var weaponDamage = parseInt(localStorage.getItem("weaponDamage"));
 var counttx = 0, countup = true;
 
-//TODO
-//simple fights
-//save file in local storage
-
 window.addEventListener('contextmenu', (event) => {
   event.preventDefault();
   speed = 0;
