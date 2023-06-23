@@ -1,25 +1,25 @@
 // BITTE VORHER README LESEN
-var speed = 50;
-var typeindex = 0;
-var dlgPointer = parseInt(localStorage.getItem("dlgPointer"));
-var dlgFile;
+// some values get saved to local storage for the checkpoint system
+var speed = 50; //typewriting effect speed
+var typeindex = 0;//wich character is already typed out
+var dlgPointer = parseInt(localStorage.getItem("dlgPointer")); //which line the user has loaded from the dialogue.json dictionary
+var dlgFile; //the current loaded dictionary (Gets replaced after answer branches)
 var dlgKeyMain = localStorage.getItem("dlgKeyMain");
-let dlgLines;
+let dlgLines; //string array with all current user readable dialogue lines
 var skipDlg = false;
 var answers;
-var keys;
+var keys; //answer box answers
 var allowNextDlg = true;
-var voice;
-var playerName;
+var voice; //sound that plays every few characters (feature not used in the current game)
 var enemyHealth = 0, enemyDamage = 1, enemyStartsHit = false;
 var health = 25;
 var weaponName = localStorage.getItem("weaponName"), continueCount = true;
 var weaponDamage = parseInt(localStorage.getItem("weaponDamage"));
-var counttx = 0, countup = true;
+var counttx = 0, countup = true; //counter values for counting weapon damage up and down in the fight screen
 
 window.addEventListener('contextmenu', (event) => {
-  event.preventDefault();
-  speed = 0;
+  event.preventDefault(); //prevents normal right click (shift rightclick works)
+  speed = 0; //makes dialogue faster
 })
 
 function load(isJump = false) {
@@ -40,7 +40,7 @@ function load(isJump = false) {
       nextDlg(false); //Skip to first
     });
 }
-
+//change current dialogue lines with dictionary keys
 function changeDlg(dlgKey) {
   if (typeof dlgFile[dlgKey] === "string") {
     var oneline = [dlgFile[dlgKey]];
@@ -49,14 +49,14 @@ function changeDlg(dlgKey) {
   else if (Array.isArray(dlgFile[dlgKey]))
     dlgLines = dlgFile[dlgKey];
 }
-
+//force typeout the dialogue
 function updateDlg() {
   typeindex = 0;
   document.getElementById("dlg-text").innerHTML = "";
   document.getElementById("triangle").hidden = true;
   typeWriter();
 }
-
+//typewriter effect
 function typeWriter() {
   if (typeindex < dlgLines[dlgPointer].length) {
     document.getElementById("dlg-text").innerHTML += dlgLines[dlgPointer].charAt(typeindex);
@@ -69,13 +69,13 @@ function typeWriter() {
   } else if (allowNextDlg)
     document.getElementById("triangle").hidden = false;
 }
-
+//go to next dialogue line and interpretate it
 function nextDlg(dlgPointerIncrease = true) {
   speed = 50;
   if (document.getElementById("dlg-text").innerHTML.length == dlgLines[dlgPointer].length && allowNextDlg || skipDlg) {
     skipDlg = false;
     if (dlgPointerIncrease)
-      dlgPointer++;
+      dlgPointer++; //actually go to the next line in the string array
     if (dlgPointer < dlgLines.length) {
       if (typeof dlgLines[dlgPointer] === 'number') {
         speed = 50 / dlgLines[dlgPointer];
@@ -83,20 +83,20 @@ function nextDlg(dlgPointerIncrease = true) {
         nextDlg();
       }
       else if (typeof dlgLines[dlgPointer] === 'string') {
-        if (dlgLines[dlgPointer].startsWith("_")) {
+        if (dlgLines[dlgPointer].startsWith("_")) { //checks if its a string command wich doesn't get typed out
           skipDlg = true;
-          if (dlgLines[dlgPointer].split(":")[0] === "_title") {
+          if (dlgLines[dlgPointer].split(":")[0] === "_title") { //topleft NPC name
             document.getElementById("title").innerHTML = dlgLines[dlgPointer].split(':')[1];
             nextDlg();
           }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_voice") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_voice") { //voice wich is a sound wich plays every few text characters
             if (dlgLines[dlgPointer].split(':')[1].length != 0)
               voice = new Audio("text_horror/assets/voices/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
             else
               voice = null;
             nextDlg();
           }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_playsound") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_playsound") { //play sounds
             var sound;
             if (dlgLines[dlgPointer].split(':')[1].length != 0) {
               sound = new Audio("text_horror/assets/sounds/" + dlgLines[dlgPointer].split(':')[1] + ".wav");
@@ -107,21 +107,18 @@ function nextDlg(dlgPointerIncrease = true) {
               sound = null;
             nextDlg();
           }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_jump") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_jump") { // jump to keys wich are not in nested dictionaries (answer boxes)
             dlgKeyMain = dlgLines[dlgPointer].split(':')[1];
             load(true);
             dlgPointer = 0;
           }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_lock") {
-            nextDlg();
-          }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_weapon") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_weapon") { //set the current player weapon
             weaponName = dlgLines[dlgPointer].split(':')[1];
             weaponDamage = parseInt(dlgLines[dlgPointer].split(':')[2]);
             console.log(weaponDamage);
             nextDlg();
           }
-          else if (dlgLines[dlgPointer].split(":")[0] === "_enemy") {
+          else if (dlgLines[dlgPointer].split(":")[0] === "_enemy") { //begin a fight against an enemy
             document.getElementById("enemy-name").innerHTML = dlgLines[dlgPointer].split(":")[1];
             document.getElementById("enemy-texture").src = "text_horror/assets/textures/" + dlgLines[dlgPointer].split(":")[2] + ".png";
             enemyHealth = dlgLines[dlgPointer].split(":")[3];
@@ -137,6 +134,7 @@ function nextDlg(dlgPointerIncrease = true) {
             document.getElementById("triangle").hidden = true;
           }
           else if (dlgLines[dlgPointer].split(":")[0] === "_checkpoint") {
+            ß //set a checkpoint with local storage
             localStorage.setItem("dlgPointer", (dlgPointer + 1).toString());
             localStorage.setItem("dlgKeyMain", dlgKeyMain);
             localStorage.setItem("weaponDamage", weaponDamage.toString());
@@ -145,7 +143,7 @@ function nextDlg(dlgPointerIncrease = true) {
         } else
           updateDlg();
       }
-      else if (typeof dlgLines[dlgPointer] === 'object') {
+      else if (typeof dlgLines[dlgPointer] === 'object') { //if inside a dictionary is a dictionary it gets built as answer box
         allowNextDlg = false;
         document.getElementById("triangle").hidden = true;
         document.getElementById("answer-box").hidden = false;
@@ -156,7 +154,7 @@ function nextDlg(dlgPointerIncrease = true) {
         }
       }
     }
-    else {
+    else { //if dlgLines array is at the end the game ends
       document.getElementById("bubble").hidden = true;
       document.getElementById("answer-box").hidden = true;
       document.getElementById("triangle").hidden = true;
@@ -164,7 +162,7 @@ function nextDlg(dlgPointerIncrease = true) {
   }
 }
 
-function answered(answerId) {
+function answered(answerId) { //handles answerbox answer clicks
   dlgFile = dlgLines[dlgPointer];
   document.getElementById("answer-box").hidden = true;
   changeDlg(document.getElementById(answerId).innerHTML);
@@ -177,7 +175,7 @@ function answered(answerId) {
   }
 }
 
-function fight() {
+function fight() { //handles the click on the fight button
   continueCount = false;
   if (!enemyStartsHit) {
     if (!continueCount) {
@@ -212,7 +210,7 @@ function fight() {
   }
 }
 
-function countWeaponDamage() {
+function countWeaponDamage() { //counts up and down
   if (countup) {
     ++counttx;
     if (counttx >= weaponDamage)
